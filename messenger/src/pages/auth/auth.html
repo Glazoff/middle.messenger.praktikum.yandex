@@ -1,14 +1,13 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <link href="auth.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/styles.scss" />
     <title>{{ titleApp }}</title>
 </head>
 <body>
     <div class="blok-auth">
 
-        <h1 class="title">Вход</h1>
+        {{> title/title text="Вход" }}
 
         <div class="block-inputs">
             {{> input/input placeholder="Логин" type="email" }}
