@@ -28,22 +28,6 @@
     margin-bottom: 159px;
 }
 
-.label {
-    font-size: 9px;
-    font-weight: 500;
-    color: #999999;
-}
-
-.input {
-    border: none;
-    border-bottom: 1px solid #3369F3;
-    width: 280px;
-}
-
-.input:focus {
-    outline: none;
-}
-
 .block-button {
     display: flex;
     flex-direction: column;

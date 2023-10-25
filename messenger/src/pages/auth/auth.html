@@ -11,15 +11,8 @@
         <h1 class="title">Вход</h1>
 
         <div class="block-inputs">
-            <label class="label">
-                Логин
-                <input class="input" type="text"></input>
-            </label>
-
-            <label class="label">
-                Пароль
-                <input class="input" type="text"></input>
-            </label>
+            {{> input/input placeholder="Логин" type="email" }}
+            {{> input/input placeholder="Пароль" type="password" }}
         </div>
 
         <div class="block-button">
