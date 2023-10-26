@@ -1,24 +1,15 @@
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/styles.scss" />
-    <title>{{ titleApp }}</title>
-</head>
-<body>
-    <div class="blok-auth">
+{{#> layouts/auth/auth }}
 
-        {{> title/title text="Вход" }}
+    {{> title/title text="Вход" }}
 
-        <div class="block-inputs">
-            {{> input/input placeholder="Логин" type="email" }}
-            {{> input/input placeholder="Пароль" type="password" }}
-        </div>
-
-        <div class="block-button">
-            {{> button/button text="Авторизоваться" filled="filled" }}
-            {{> button/button text="Нет аккаунта" }}
-        </div>
-
+    <div class="block-inputs">
+        {{> input/input placeholder="Логин" type="email" }}
+        {{> input/input placeholder="Пароль" type="password" }}
     </div>
-</body>
-</html>
+
+    <div class="block-button">
+        {{> button/button text="Авторизоваться" filled="filled" }}
+        {{> button/button text="Нет аккаунта" }}
+    </div>
+
+{{/layouts/auth/auth}}
