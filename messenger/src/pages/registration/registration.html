@@ -1,0 +1,23 @@
+{{#> layouts/auth/auth }}
+
+    {{> title/title text="Регистрация" }}
+
+    <div class="block-inputs">
+        {{> input/input placeholder="Почта" id="email" type="email" }}
+        {{> input/input placeholder="Логин" id="login" type="email" }}
+
+        {{> input/input placeholder="Имя" id="fname" type="text" }}
+        {{> input/input placeholder="Фамилия" id="lname" type="text" }}
+
+        {{> input/input placeholder="Телефон" id="tel" type="tel" }}
+
+        {{> input/input placeholder="Пароль" id="password" type="password" }}
+        {{> input/input placeholder="Пароль (еще раз)" id="password" type="password" }}
+    </div>
+
+    <div class="block-button">
+        {{> button/button text="Зарегистрироваться" filled="filled" }}
+        {{> button/button text="Войти" }}
+    </div>
+
+{{/layouts/auth/auth}}
