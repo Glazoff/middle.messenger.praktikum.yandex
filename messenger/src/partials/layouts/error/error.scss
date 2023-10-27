@@ -1,0 +1,26 @@
+.error-block {
+    box-sizing: border-box;
+    width: 510px;
+    min-height: 80px;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-block__title {
+    font-size: 40px;
+    margin: 0;
+}
+
+.error-block__content {
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+
+
