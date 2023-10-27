@@ -6,13 +6,13 @@
 </head>
 <body>
     <div class="blok-profile">
-        <div class="head-profile">
+        <div class="blok-profile__head">
             <img src="/img/Ellipse 17.svg" />
             {{> title/title text="Иван" }}
         </div>
 
 
-        <div class="block-input">
+        <div class="blok-profile__inputs">
             {{> inputProfile/inputProfile id="email" placeholder="Почта" type="email" value="pochta@yandex.ru" }}
             {{> inputProfile/inputProfile id="login" placeholder="Логин" type="text" value="ivanivanov" }}
             {{> inputProfile/inputProfile id="fname" placeholder="Имя" type="text" value="Иван" }}
@@ -22,7 +22,7 @@
         </div>
 
        
-        <div class="block-buttons">
+        <div class="blok-profile__buttons">
             {{> buttonProfile/buttonProfile text="Изменить данные" }}
             <hr>
             {{> buttonProfile/buttonProfile text="Изменить пароль" }}
