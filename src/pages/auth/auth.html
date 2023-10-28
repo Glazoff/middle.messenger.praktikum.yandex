@@ -2,14 +2,16 @@
 
     {{> title/title text="Вход" }}
 
-    <div class="blok-auth__inputs">
-        {{> input/input placeholder="Логин" id="email" type="email" name="login"}}
-        {{> input/input placeholder="Пароль" id="password" type="password" name="password"}}
-    </div>
-
-    <div class="blok-auth__buttons">
-        {{> button/button text="Авторизоваться" filled="filled" }}
-        {{> button/button text="Нет аккаунта" }}
-    </div>
+    <form>
+        <div class="blok-auth__inputs">
+            {{> input/input placeholder="Логин" id="email" type="email" name="login"}}
+            {{> input/input placeholder="Пароль" id="password" type="password" name="password"}}
+        </div>
+    
+        <div class="blok-auth__buttons">
+            {{> button/button text="Авторизоваться" filled="filled" }}
+            {{> button/button text="Нет аккаунта" }}
+        </div>
+    </form>
 
 {{/layouts/auth/auth}}

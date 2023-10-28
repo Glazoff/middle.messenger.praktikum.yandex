@@ -2,22 +2,24 @@
 
     {{> title/title text="Регистрация" }}
 
-    <div class="blok-auth__inputs">
-        {{> input/input placeholder="Почта" id="email" type="email" name="email"}}
-        {{> input/input placeholder="Логин" id="login" type="email" name="login"}}
-
-        {{> input/input placeholder="Имя" id="fname" type="text" name="first_name"}}
-        {{> input/input placeholder="Фамилия" id="lname" type="text" name="second_name"}}
-
-        {{> input/input placeholder="Телефон" id="tel" type="tel" name="phone"}}
-
-        {{> input/input placeholder="Пароль" id="password" type="password" name="password"}}
-        {{> input/input placeholder="Пароль (еще раз)" id="repeat_password" type="password" name="password"}}
-    </div>
-
-    <div class="blok-auth__buttons">
-        {{> button/button text="Зарегистрироваться" filled="filled" }}
-        {{> button/button text="Войти" }}
-    </div>
+    <form>
+        <div class="blok-auth__inputs">
+            {{> input/input placeholder="Почта" id="email" type="email" name="email"}}
+            {{> input/input placeholder="Логин" id="login" type="email" name="login"}}
+    
+            {{> input/input placeholder="Имя" id="fname" type="text" name="first_name"}}
+            {{> input/input placeholder="Фамилия" id="lname" type="text" name="second_name"}}
+    
+            {{> input/input placeholder="Телефон" id="tel" type="tel" name="phone"}}
+    
+            {{> input/input placeholder="Пароль" id="password" type="password" name="password"}}
+            {{> input/input placeholder="Пароль (еще раз)" id="repeat_password" type="password" name="password"}}
+        </div>
+    
+        <div class="blok-auth__buttons">
+            {{> button/button text="Зарегистрироваться" filled="filled" }}
+            {{> button/button text="Войти" }}
+        </div>
+    </form>
 
 {{/layouts/auth/auth}}

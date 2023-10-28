@@ -5,30 +5,34 @@
     <title>{{ titleApp }}</title>
 </head>
 <body>
-    <div class="blok-profile">
-        <div class="blok-profile__head">
-            <img src="/img/Ellipse 17.svg" name="avatar"/>
-            {{> title/title text="Иван" }}
+    <main>
+        <div class="blok-profile">
+            <div class="blok-profile__head">
+                <img src="/img/Ellipse 17.svg" name="avatar"/>
+                {{> title/title text="Иван" }}
+            </div>
+    
+            <form class="blok-profile__form">
+                <div class="blok-profile__inputs">
+                    {{> inputProfile/inputProfile id="email" placeholder="Почта" type="email" value="pochta@yandex.ru" name="email"}}
+                    {{> inputProfile/inputProfile id="login" placeholder="Логин" type="text" value="ivanivanov" name="login"}}
+                    {{> inputProfile/inputProfile id="fname" placeholder="Имя" type="text" value="Иван" name="first_name"}}
+                    {{> inputProfile/inputProfile id="lname" placeholder="Фамилия" type="text" value="Иванов" name="second_name"}}
+                    {{> inputProfile/inputProfile id="name_chat" placeholder="Имя в чате" type="text" value="Иван" name="display_name"}}
+                    {{> inputProfile/inputProfile id="tel" placeholder="Телефон" type="tel" value="+7 (909) 967 30 30" name="phone"}}
+                </div>
+        
+               
+                <div class="blok-profile__buttons">
+                    {{> buttonProfile/buttonProfile text="Изменить данные" }}
+                    <hr>
+                    {{> buttonProfile/buttonProfile text="Изменить пароль" }}
+                    <hr>
+                    {{> buttonProfile/buttonProfile red="red" text="Выйти" }}
+                </div>
+            </form>
+         
         </div>
-
-
-        <div class="blok-profile__inputs">
-            {{> inputProfile/inputProfile id="email" placeholder="Почта" type="email" value="pochta@yandex.ru" name="email"}}
-            {{> inputProfile/inputProfile id="login" placeholder="Логин" type="text" value="ivanivanov" name="login"}}
-            {{> inputProfile/inputProfile id="fname" placeholder="Имя" type="text" value="Иван" name="first_name"}}
-            {{> inputProfile/inputProfile id="lname" placeholder="Фамилия" type="text" value="Иванов" name="second_name"}}
-            {{> inputProfile/inputProfile id="name_chat" placeholder="Имя в чате" type="text" value="Иван" name="display_name"}}
-            {{> inputProfile/inputProfile id="tel" placeholder="Телефон" type="tel" value="+7 (909) 967 30 30" name="phone"}}
-        </div>
-
-       
-        <div class="blok-profile__buttons">
-            {{> buttonProfile/buttonProfile text="Изменить данные" }}
-            <hr>
-            {{> buttonProfile/buttonProfile text="Изменить пароль" }}
-            <hr>
-            {{> buttonProfile/buttonProfile red="red" text="Выйти" }}
-        </div>
-    </div>
+    </main>
 </body>
 </html>
