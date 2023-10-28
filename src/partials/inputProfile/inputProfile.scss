@@ -1,13 +1,13 @@
 .input-profile-wrapper {
     position: relative;
     width: 100%;
-    border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid $color-grey-light;
 
     .input {
         border: none;
         width: 100%;
         text-align: right;
-        color: #999999;
+        color: $color-grey;
         margin-bottom: 8px;
         
         &:focus {
@@ -20,7 +20,7 @@
         position: absolute;
         top: 0px;
         left: 0;
-        color: #1E1E1E;
+        color: $color-dark;
         pointer-events: none;
     }
 

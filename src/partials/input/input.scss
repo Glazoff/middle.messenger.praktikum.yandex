@@ -3,7 +3,7 @@
 
     .input {
         border: none;
-        border-bottom: 1px solid #3369F3;
+        border-bottom: 1px solid $color-blue;
         width: 280px;
         &:focus {
             outline: none;
@@ -19,7 +19,7 @@
         position: absolute;
         top: 0px;
         left: 0;
-        color: #999999;
+        color: $color-grey;
         pointer-events: none;
         transform-origin: left center;
         transition: transform 250ms;
