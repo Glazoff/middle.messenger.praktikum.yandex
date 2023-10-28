@@ -22,13 +22,13 @@ npm run start
 
 ### Деплой проекта
 Проект развернут на сервисе Netlify
-Ссылка на проект: https://tourmaline-kitten-3eeb0a.netlify.app/
+Ссылка на проект: https://deploy--cozy-babka-3ed8f9.netlify.app
 
 ### Ссылки на страницы проекта 
 
-1. [auth](https://tourmaline-kitten-3eeb0a.netlify.app/pages/auth/auth)
-2. [registration](https://tourmaline-kitten-3eeb0a.netlify.app/pages/registration/registration)
-3. [profile](https://tourmaline-kitten-3eeb0a.netlify.app/pages/profile/profile)
-4. [404](https://tourmaline-kitten-3eeb0a.netlify.app/pages/404/404)
-5. [500](https://tourmaline-kitten-3eeb0a.netlify.app/pages/500/500)
-6. [chat](https://tourmaline-kitten-3eeb0a.netlify.app/pages) на данном этапе ссылка просто заглушка, будет реализована в следующем спринте
+1. [auth](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/auth/auth)
+2. [registration](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/registration/registration)
+3. [profile](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/profile/profile)
+4. [404](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/404/404)
+5. [500](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/500/500)
+6. [chat](https://deploy--cozy-babka-3ed8f9.netlify.app/pages) на данном этапе ссылка просто заглушка, будет реализована в следующем спринте
