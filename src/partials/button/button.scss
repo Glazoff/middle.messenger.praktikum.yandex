@@ -1,0 +1,15 @@
+.button {
+    display: block;
+    border: none;
+    width: 280px;
+    height: 37px;
+    text-align: center;
+    color: $color-blue;
+    background: none;
+}
+
+.filled {
+    border-radius: 8px;
+    background: $color-blue;
+    color: $color-white;
+}

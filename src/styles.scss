@@ -1,0 +1,17 @@
+$color-red: #FF0000;
+$color-grey-light: #EAEAEA;
+$color-grey: #999999;
+$color-dark: #1E1E1E;
+$color-white: #ffffff;
+$color-blue: #3369F3;
+
+@import './partials/button/button.scss';
+@import './partials/input/input.scss';
+@import './partials/inputProfile/inputProfile.scss';
+@import './partials/buttonProfile/buttonProfile.scss';
+@import './partials/title/title.scss';
+
+@import './partials/layouts/auth/auth.scss';
+@import './partials/layouts/error/error.scss';
+
+@import './pages/profile/profile.scss';

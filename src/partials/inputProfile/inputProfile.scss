@@ -1,0 +1,30 @@
+.input-profile-wrapper {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid $color-grey-light;
+
+    .input {
+        border: none;
+        width: 100%;
+        text-align: right;
+        color: $color-grey;
+        margin-bottom: 8px;
+        
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .placeholder {
+        font-size: 13px;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        color: $color-dark;
+        pointer-events: none;
+    }
+
+    &:last-child {
+        border: none;
+    }
+}
