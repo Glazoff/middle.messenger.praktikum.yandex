@@ -13,4 +13,3 @@ export function renderDOM(query: string, component: any) { // todo присво�
   
     return root;
 }
-  
