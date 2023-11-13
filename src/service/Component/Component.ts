@@ -1,8 +1,9 @@
 import { compile } from "handlebars";
 import { v4 as makeUUID } from "uuid"
+
 import { EventBus } from "../EventBus";
 
-import { Props, Children } from "./types";
+import { Props, Children, Meta } from "./types";
 
 export class Component {
     static EVENTS = {
@@ -13,10 +14,11 @@ export class Component {
     };
 
     private element: null | HTMLElement = null;
-    private meta: null | Record<string , unknown> = null;
+    private meta: Meta;
     private id: string;
     private eventBus: EventBus;
     private children: Children<Component>;
+    private isPropsUdate: boolean = false;
     public props: Props;
 
     constructor(tagName = "div", propsAndChildren = {}) {
@@ -29,7 +31,7 @@ export class Component {
         };
 
         this.children = this.makePropsProxy(children);
-        this.props = this.makePropsProxy(props);
+        this.props = this.makePropsProxy({...props, __id: this.id});
 
         this.registerEvents(this.eventBus);
         this.eventBus.emit(Component.EVENTS.INIT);
@@ -49,6 +51,10 @@ export class Component {
     // переопределяется при написании компонета
     public componentDidMount() {};
 
+    public dispatchComponentDidMount() {
+        this.eventBus.emit(Component.EVENTS.FLOW_CDM);
+    };
+
     private _componentDidUpdate(oldProps: Props, newProps: Props) {
         const response = this.componentDidUpdate(oldProps, newProps);
         if (!response) {
@@ -59,8 +65,7 @@ export class Component {
 
     // переопределяется при написании компонета
     public componentDidUpdate(oldProps: Props, newProps: Props) {
-        oldProps;
-        newProps;
+        console.log(`oldProps: ${oldProps}, newProps: ${newProps}`);
         return true;
     };
 
@@ -68,8 +73,13 @@ export class Component {
         const block = this.render();
 
         if(this.element) {
+            this.addEvents();
+
             this.element.innerHTML = "";
             this.element.appendChild(block);
+
+            this.removeEvents();
+            this.addAttribute();
         }
     };
 
@@ -98,12 +108,16 @@ export class Component {
         const self = this;
 
         return new Proxy(props, {
-          set(target, prop, value) {
-            target[prop] = value;
-    
-            self.eventBus.emit(Component.EVENTS.FLOW_CDU);
-            return true;
-          }
+            set(target, prop, value) {
+                target[prop] = value;
+
+                if(target[prop] !== value) {
+                    target[prop] = value;
+                    self.isPropsUdate = true;
+                }
+
+                return true;
+            }
         });
     };
 
@@ -115,12 +129,12 @@ export class Component {
     };
 
     private createResources() {
-        const { tagName } = this.meta as Record<string, unknown>;
+        const { tagName } = this.meta;
 
-        this.element = this.createDocumentElement(tagName as string);
+        this.element = this.createDocumentElement(tagName);
     };
 
-    private createDocumentElement(tagName: string)  {
+    private createDocumentElement(tagName: string): HTMLTemplateElement | HTMLElement  {
         return document.createElement(tagName);
     };
 
@@ -131,7 +145,7 @@ export class Component {
             propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
         });
 
-        const fragment: HTMLTemplateElement = this.createDocumentElement("template") as HTMLTemplateElement;
+        const fragment = this.createDocumentElement("template") as HTMLTemplateElement;
 
         fragment.innerHTML = compile(template)(propsAndStubs);
 
@@ -149,4 +163,63 @@ export class Component {
     public getContent() {
         return this.element;
     };
+
+    private addEvents() {
+        const { events = {} } = this.props;
+
+        Object.keys(events).forEach((eventName) => {
+          this.element?.addEventListener(eventName, events[eventName]);
+        });
+    };
+
+    private removeEvents() {
+        const { events = {} } = this.props;
+
+        Object.keys(events).forEach((eventName) => {
+            this.element?.removeEventListener(eventName, events[eventName]);
+        });
+    };
+
+    public setProps(newProps: Props) {
+        if(!newProps) {
+            return
+        }
+
+        this.isPropsUdate = false;
+
+        const oldProps = {...this.props};
+
+        const { props, children } = this.getChildren(newProps);
+
+        if(Object.values(children).length) {
+            Object.assign(this.children, children)
+        }
+
+        if(Object.values(props).length) {
+            Object.assign(this.props, props)
+        }
+
+        if(this.isPropsUdate) {
+            this.eventBus.emit(Component.EVENTS.FLOW_CDU, oldProps, this.props)
+            this.isPropsUdate = false;
+        }
+    }
+
+    private addAttribute() {
+        const { attribute = {} } = this.props;
+
+        Object.entries(attribute).forEach(([key, value]) => {
+            this.element?.setAttribute(key, value);
+        });
+    }
+
+    public show() {
+        const element = this.getContent()
+        if(element) element.style.display = "block";
+    }
+
+    public hide() {
+        const element = this.getContent()
+        if(element) element.style.display = "none";
+    }
 }
