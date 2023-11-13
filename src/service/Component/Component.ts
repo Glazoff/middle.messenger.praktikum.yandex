@@ -88,7 +88,7 @@ export class Component {
     };
 
     // переопределяется при написании компонета
-    public render() {
+    public render(): DocumentFragment {
         return this.compile('', this.props);
     };
 
