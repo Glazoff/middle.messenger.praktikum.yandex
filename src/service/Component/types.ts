@@ -6,12 +6,10 @@ export type Attributes = Record<string, string>;
 
 export type AbstractProps = Record<string | symbol, unknown>;
 
-export type PropsAndChildren = {
+export type Props = {
     events?: Events;
     attribute?: Attributes;
-};
-
-export type Props = PropsAndChildren & AbstractProps;
+} & AbstractProps;
 
 export type Meta = {
     tagName: string
