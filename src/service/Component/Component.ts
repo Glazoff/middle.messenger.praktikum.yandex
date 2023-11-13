@@ -65,7 +65,10 @@ export class Component {
 
     // переопределяется при написании компонета
     public componentDidUpdate(oldProps: Props, newProps: Props) {
-        console.log(`oldProps: ${oldProps}, newProps: ${newProps}`);
+        console.log('componentDidUpdate');
+
+        console.log('oldProps',oldProps);
+        console.log('newProps', newProps);
         return true;
     };
 
@@ -73,12 +76,13 @@ export class Component {
         const block = this.render();
 
         if(this.element) {
-            this.addEvents();
+            this.removeEvents();
+
 
             this.element.innerHTML = "";
             this.element.appendChild(block);
 
-            this.removeEvents();
+            this.addEvents();
             this.addAttribute();
         }
     };
@@ -109,7 +113,6 @@ export class Component {
 
         return new Proxy(props, {
             set(target, prop, value) {
-                target[prop] = value;
 
                 if(target[prop] !== value) {
                     target[prop] = value;
