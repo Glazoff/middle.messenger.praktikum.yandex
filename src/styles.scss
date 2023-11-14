@@ -12,6 +12,7 @@ $color-blue: #3369F3;
 @import './partials/title/title.scss';
 
 @import './partials/layouts/auth/auth.scss';
-@import './partials/layouts/error/error.scss';
 
 @import './pages/profile/profile.scss';
+
+@import './layouts/Error/error.scss';
