@@ -22,7 +22,7 @@ export default defineConfig({
             input: {
                 index: resolve(__dirname, 'src/index.html'),
                 auth: resolve(__dirname, 'src/pages/auth'),
-                registration: resolve(__dirname, 'src/pages/registration/registration.html'),
+                registration: resolve(__dirname, 'src/pages/registration'),
                 profile: resolve(__dirname, 'src/pages/profile/profile.html'),
                 404: resolve(__dirname, 'src/pages/404'),
 				500: resolve(__dirname, 'src/pages/500'),
