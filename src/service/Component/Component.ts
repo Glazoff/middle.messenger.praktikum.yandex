@@ -3,7 +3,7 @@ import { v4 as makeUUID } from "uuid"
 
 import { EventBus } from "../EventBus";
 
-import { Props, Children, Meta } from "./types";
+import { Props, Children, Meta, Lists } from "./types";
 
 export class Component {
     static EVENTS = {
@@ -19,12 +19,13 @@ export class Component {
     private eventBus: EventBus;
     private children: Children<Component>;
     private isPropsUdate: boolean = false;
+    private lists: Lists<Component>;
     public props: Props;
 
     constructor(tagName = "div", propsAndChildren = {}) {
         this.id = makeUUID();
         this.eventBus = new EventBus();
-        const { props, children } = this.getChildren(propsAndChildren);
+        const { props, children, lists } = this.getChildren(propsAndChildren);
         this.meta = {
             tagName,
             props,
@@ -32,6 +33,7 @@ export class Component {
 
         this.children = this.makePropsProxy(children);
         this.props = this.makePropsProxy({...props, __id: this.id});
+        this.lists = this.makePropsProxy(lists);
 
         this.registerEvents(this.eventBus);
         this.eventBus.emit(Component.EVENTS.INIT);
@@ -94,18 +96,22 @@ export class Component {
 
     // Lifecycle Methods end
 
-    private getChildren(propsAndChildren: Record<string, unknown>) {
+    private getChildren(propsAndChildren: Record<string, unknown  >) {
         const children: Children<Component> = {};
+        const lists: Lists<Component>  = {};
         const props: Props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
             if (value instanceof Component) {
-            children[key] = value;
-        } else {
-            props[key] = value;
-        }});
+                children[key] = value;
+            } else if(Array.isArray(propsAndChildren[key])) {
+                lists[key] = propsAndChildren[key] as Array<Component | string>;
+            } else {
+                props[key] = value;
+            }
+        });
       
-        return { children, props };
+        return { children, props, lists };
     };
 
     private makePropsProxy<T extends Props | Children<Component>>(props: T ): T {
@@ -148,6 +154,10 @@ export class Component {
             propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
         });
 
+        Object.entries(this.lists).forEach(([key]) => {
+            propsAndStubs[key] = `<div data-id="${key}"></div>`;
+        });
+
         const fragment = this.createDocumentElement("template") as HTMLTemplateElement;
 
         fragment.innerHTML = compile(template)(propsAndStubs);
@@ -158,6 +168,24 @@ export class Component {
             if(stub) {
                 stub.replaceWith(child.getContent() as HTMLElement);
             }
+        });
+
+        Object.entries(this.lists).forEach(([key, child]) => {
+            const stub = fragment.content.querySelector(`[data-id="${key}"]`)
+
+            if(!stub) return;
+
+            const listContent = this.createDocumentElement("template") as HTMLTemplateElement;
+            
+            child.forEach((item) => {
+                if(item instanceof Component) {
+                    listContent.content.append(item.getContent() as HTMLElement);
+                } else {
+                    listContent.content.append(`${item}`)
+                }
+            })
+
+            stub.replaceWith(listContent.content)
         });
 
         return fragment.content;
@@ -192,10 +220,14 @@ export class Component {
 
         const oldProps = {...this.props};
 
-        const { props, children } = this.getChildren(newProps);
+        const { props, children, lists } = this.getChildren(newProps);
 
         if(Object.values(children).length) {
             Object.assign(this.children, children)
+        }
+
+        if(Object.values(this.lists).length) {
+            Object.assign(this.lists, lists)
         }
 
         if(Object.values(props).length) {
