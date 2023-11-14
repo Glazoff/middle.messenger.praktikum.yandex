@@ -5,6 +5,7 @@ import Page500 from "./pages/500/500";
 import Main from "./pages/Main";
 import Auth from "./pages/auth/Auth";
 import Registration from "./pages/registration/Registration";
+import Profile from "./pages/profile";
 
 const pages: Record<string, Component> = {
     '/': new Main({}),
@@ -12,6 +13,7 @@ const pages: Record<string, Component> = {
     '/500': new Page500(),
     '/auth': new Auth(),
     '/registration': new Registration(),
+    '/profile': new Profile(),
 };
 
 const carentPath = window.location.pathname;
