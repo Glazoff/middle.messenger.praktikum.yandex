@@ -8,12 +8,14 @@ import { Block } from "../../components/Block";
 
 export class AuthLayouts extends Component {
     constructor(props: Props) {
-        const {title} = props;
+        const {title, buttons, inputs} = props;
 
         props.title = new Title({text: title, attribute: {class: 'title'}});
 
-        props.form = new Form({content:
-            new Block({content: '', attribute: {class: 'blok-auth__inputs'}})
+        props.form = new Form({content:[
+            new Block({content: inputs, attribute: {class: 'blok-auth__inputs'}}),
+            new Block({content: buttons, attribute: {class: 'blok-auth__buttons'}})
+        ]
         })
 
         props.attribute = {
