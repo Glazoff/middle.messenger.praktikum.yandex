@@ -6,6 +6,7 @@ import Main from "./pages/main";
 import Auth from "./pages/auth/Auth";
 import Registration from "./pages/registration/Registration";
 import Profile from "./pages/profile";
+import { Chat } from "./pages/chat";
 
 const pages: Record<string, Component> = {
     '/': new Main({}),
@@ -14,6 +15,7 @@ const pages: Record<string, Component> = {
     '/auth': new Auth(),
     '/registration': new Registration(),
     '/profile': new Profile(),
+    '/chat': new Chat(),
 };
 
 const carentPath = window.location.pathname;

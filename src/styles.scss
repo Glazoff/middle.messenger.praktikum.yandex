@@ -1,5 +1,7 @@
 $color-red: #FF0000;
 $color-grey-light: #EAEAEA;
+$color-grey-lotion: #FBFBFB;
+$color-light-shade-gray: #EFEFEF;
 $color-grey: #999999;
 $color-dark: #1E1E1E;
 $color-white: #ffffff;
@@ -12,7 +14,19 @@ $color-blue: #3369F3;
 @import './components/Title/title.scss';
 
 @import './pages/profile/profile.scss';
+@import './pages/chat/chat.scss';
+@import './pages/chat/ChatList/Head/components/SearchInput/serachInput.scss';
+@import './pages/chat/ChatList/Head/components/ButtonProfile/buttonProfile.scss';
+@import './pages/chat/ChatList/Head/head.scss';
+@import './pages/chat/ChatList/List/list.scss';
+@import './pages/chat/ChatList/List/ListItem/listItem.scss';
+@import './pages/chat/ChatList/List/ListItem/component/countUnread.scss';
 
 @import './layouts/Error/error.scss';
 @import './layouts/Auth/auth.scss';
 
+@import './pages/chat/ChatList/chatList.scss';
+
+body {
+    margin: 0;
+}

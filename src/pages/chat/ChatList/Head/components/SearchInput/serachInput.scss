@@ -1,0 +1,30 @@
+.chat-list__search-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    position: relative;
+    
+    .search-input {
+        display: block;
+        border-radius: 5px;
+        background-color: $color-light-shade-gray;
+        border: none;
+        width: 100%;
+        color: $color-dark;
+
+        padding: 10px 0px 10px 50px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .search-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-grey;
+    }
+}

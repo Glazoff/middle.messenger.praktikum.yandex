@@ -1,0 +1,11 @@
+.chat-list {
+    display: flex;
+
+    justify-content: space-between;
+    flex-direction: column;
+
+    width: 25vw;
+    background-color: $color-grey-lotion;
+
+    border-right: 1px solid $color-grey-light;
+}

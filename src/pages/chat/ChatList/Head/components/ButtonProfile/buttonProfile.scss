@@ -1,0 +1,16 @@
+.wrapper-button-profile {
+    position: relative;
+    width: 100%;
+
+    .button-profile {
+        position: absolute;
+        right: 5px;
+        top: 20px;
+        display: block;
+        border: none;
+        text-align: center;
+        color: $color-grey;
+        background: none;
+
+    }
+}
