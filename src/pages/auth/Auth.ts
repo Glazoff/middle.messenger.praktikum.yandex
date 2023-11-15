@@ -3,7 +3,7 @@ import { Props } from "../../service/Component/types";
 import {AuthLayouts} from '../../layouts/Auth';
 import { template } from "./template";
 import Button from "../../components/Button";
-import { InputAuth } from "../../components/InputAuth";
+import { Input } from "../../components/Input";
 
 export default class Auth extends Component {
     constructor(tag = 'div', props: Props = {}) {
@@ -11,8 +11,8 @@ export default class Auth extends Component {
         props.content = new AuthLayouts({
             title: 'Вход',
             inputs: [
-                new InputAuth({id: 'email', placeholder: 'Логин', type: 'email', name: 'login'}),
-                new InputAuth({id: 'password', placeholder: 'Пароль', type: 'password', name: 'password'})
+                new Input({id: 'email', placeholder: 'Логин', type: 'email', name: 'login'}),
+                new Input({id: 'password', placeholder: 'Пароль', type: 'password', name: 'password'})
             ],
             buttons: [
                 new Button({text: 'Авторизоваться', attribute: {class: 'button filled'}}),

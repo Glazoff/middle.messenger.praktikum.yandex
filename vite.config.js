@@ -5,7 +5,6 @@ import handlebars from 'vite-plugin-handlebars';
 export default defineConfig({
   	root: resolve(__dirname, 'src'),
   	plugins: [handlebars({
-		partialDirectory: resolve(__dirname, 'src/partials'),
 		context: {
 			titleApp: 'My messenger'
 		},
@@ -20,10 +19,10 @@ export default defineConfig({
         outDir: resolve(__dirname, 'dist'),
         rollupOptions: {
             input: {
-                index: resolve(__dirname, 'src/index.html'),
+                index: resolve(__dirname, 'src'),
                 auth: resolve(__dirname, 'src/pages/auth'),
                 registration: resolve(__dirname, 'src/pages/registration'),
-                profile: resolve(__dirname, 'src/pages/profile/profile.html'),
+                profile: resolve(__dirname, 'src/pages/profile'),
                 404: resolve(__dirname, 'src/pages/404'),
 				500: resolve(__dirname, 'src/pages/500'),
             },

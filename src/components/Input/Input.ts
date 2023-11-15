@@ -2,7 +2,7 @@ import { Component } from "../../service/Component";
 import { Props } from "../../service/Component/types";
 import { template } from "./template";
 
-export class InputAuth extends Component {
+export class Input extends Component {
     constructor(props: Props) {
         props.attribute = {
             class: 'input-wrapper',

@@ -1,5 +1,5 @@
 import Button from "../../components/Button";
-import { InputAuth } from "../../components/InputAuth";
+import { Input } from "../../components/Input";
 import { AuthLayouts } from "../../layouts/Auth";
 import { Component } from "../../service/Component"
 import { Props } from "../../service/Component/types";
@@ -11,13 +11,13 @@ export default class Registration extends Component {
         props.content = new AuthLayouts({
             title: 'Вход',
             inputs: [
-                new InputAuth({id: 'email', placeholder: 'Почта', type: 'email', name: 'email'}),
-                new InputAuth({id: 'login', placeholder: 'Логин', type: 'email', name: 'login'}),
-                new InputAuth({id: 'fname', placeholder: 'Имя', type: 'text', name: 'first_name'}),
-                new InputAuth({id: 'lname', placeholder: 'Фамилия', type: 'text', name: 'second_name'}),
-                new InputAuth({id: 'tel', placeholder: 'Телефон', type: 'tel', name: 'phone'}),
-                new InputAuth({id: 'password', placeholder: 'Пароль', type: 'password', name: 'password'}),
-                new InputAuth({id: 'repeat_password"', placeholder: 'Пароль (еще раз)', type: 'password', name: 'password'}),
+                new Input({id: 'email', placeholder: 'Почта', type: 'email', name: 'email'}),
+                new Input({id: 'login', placeholder: 'Логин', type: 'email', name: 'login'}),
+                new Input({id: 'fname', placeholder: 'Имя', type: 'text', name: 'first_name'}),
+                new Input({id: 'lname', placeholder: 'Фамилия', type: 'text', name: 'second_name'}),
+                new Input({id: 'tel', placeholder: 'Телефон', type: 'tel', name: 'phone'}),
+                new Input({id: 'password', placeholder: 'Пароль', type: 'password', name: 'password'}),
+                new Input({id: 'repeat_password"', placeholder: 'Пароль (еще раз)', type: 'password', name: 'password'}),
 
             ],
             buttons: [

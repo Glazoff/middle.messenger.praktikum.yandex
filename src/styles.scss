@@ -5,11 +5,11 @@ $color-dark: #1E1E1E;
 $color-white: #ffffff;
 $color-blue: #3369F3;
 
-@import './partials/button/button.scss';
-@import './partials/input/input.scss';
-@import './partials/inputProfile/inputProfile.scss';
-@import './partials/buttonProfile/buttonProfile.scss';
-@import './partials/title/title.scss';
+@import './components/Button/button.scss';
+@import './components/Input/input.scss';
+@import './pages/profile/components/Input/inputProfile.scss';
+@import './pages/profile/components/Button/buttonProfile.scss';
+@import './components/Title/title.scss';
 
 @import './pages/profile/profile.scss';
 
