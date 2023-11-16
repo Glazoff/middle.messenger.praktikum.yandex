@@ -1,5 +1,5 @@
 export const template = `
     {{{ head }}}
-    {{{ messsegList }}}
+    {{{ messageList }}}
     {{{ input }}}
 `;

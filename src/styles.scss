@@ -6,6 +6,8 @@ $color-grey: #999999;
 $color-dark: #1E1E1E;
 $color-white: #ffffff;
 $color-blue: #3369F3;
+$color-blue-alice: #e4edfd;
+$color-smoky-white: #F8F8F8;
 
 @import './components/Button/button.scss';
 @import './components/Input/input.scss';
@@ -29,6 +31,8 @@ $color-blue: #3369F3;
 @import './pages/chat/Messages/InputMessage/components/SubmitButton/submitButton.scss';
 @import './pages/chat/Messages/InputMessage/components/Input/input.scss';
 @import './pages/chat/Messages/InputMessage/components/Clip/clip.scss';
+@import './pages/chat/Messages/MessageList/messageList.scss';
+@import './pages/chat/Messages/MessageList/MessageBlock/messageBlock.scss';
 
 @import './layouts/Error/error.scss';
 @import './layouts/Auth/auth.scss';
@@ -41,4 +45,8 @@ body {
 
 button {
     padding: 0;
+}
+
+p {
+    margin: 0;
 }

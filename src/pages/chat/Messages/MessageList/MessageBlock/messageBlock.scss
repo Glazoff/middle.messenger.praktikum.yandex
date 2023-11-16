@@ -1,0 +1,35 @@
+.message-block {
+    max-width: 400px;
+    padding: 11px 11px 25px 11px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.time {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.message-block-me {
+    align-self: flex-end;
+    background-color: $color-blue-alice;
+    border-radius: 10px 10px 0px 10px;
+
+    .time {
+        font-size: 9px;
+        color: $color-blue;
+    }
+}
+
+.message-block-its {
+    align-self: flex-start;
+    background-color: $color-smoky-white;
+    border-radius: 0px 10px 10px 10px;
+
+    .time {
+        font-size: 9px;
+        color: $color-grey;
+    }
+}
+
