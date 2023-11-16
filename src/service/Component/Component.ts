@@ -81,7 +81,7 @@ export class Component {
             this.removeEvents();
 
 
-            this.element.innerHTML = "";
+            this.element.textContent = "";
             this.element.appendChild(block);
 
             this.addEvents();
