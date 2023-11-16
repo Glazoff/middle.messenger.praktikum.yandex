@@ -1,6 +1,6 @@
 export type Children<C> = Record<string | symbol, C>;
 
-export type Events = Record<string, () => void>;
+export type Events = Record<string, (e: Event) => void>;
 
 export type Attributes = Record<string, string>;
 
