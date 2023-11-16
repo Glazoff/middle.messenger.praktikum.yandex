@@ -1,12 +1,15 @@
 import { Component } from "../../service/Component";
 import { Props } from "../../service/Component/types";
 import { ChatList } from "./ChatList";
+import { Messages } from "./Messages";
 import { template } from "./template";
 
 export class Chat extends Component {
     constructor(props: Props = {}) {
 
         props.chatList = new ChatList();
+
+        props.messages = new Messages();
 
         props.attribute = {
             class: 'chat'

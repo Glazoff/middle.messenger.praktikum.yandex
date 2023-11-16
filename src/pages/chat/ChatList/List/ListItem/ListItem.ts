@@ -15,7 +15,7 @@ export class ListItem extends Component {
         props.infoMessage = new Block({
             content: [
                 new Title({text: 'Андрей', attribute: {class: 'user-name'}}),
-                new Textarea({text: 'Слышал песню "Привет Андрей?"', attribute: {class: 'message'}})
+                new Textarea({text: 'Слышал песню "Привет Андрей" ?', attribute: {class: 'message'}})
             ]
         });
 

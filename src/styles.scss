@@ -22,6 +22,10 @@ $color-blue: #3369F3;
 @import './pages/chat/ChatList/List/ListItem/listItem.scss';
 @import './pages/chat/ChatList/List/ListItem/component/countUnread.scss';
 
+@import './pages/chat/Messages/messages.scss';
+@import './pages/chat/Messages/Head/head.scss';
+@import './pages/chat/Messages/Head/Ellipses/ellipses.scss';
+
 @import './layouts/Error/error.scss';
 @import './layouts/Auth/auth.scss';
 
