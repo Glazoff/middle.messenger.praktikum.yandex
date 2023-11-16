@@ -1,4 +1,4 @@
 export const template = `
-    <input id="{{ id }}" class="{{ classInput }}"></input>
-    <label for="{{ id }}" class="{{ classLabel }}"> {{{ svg }}} Поиск </label>
+    {{{ img }}}
+    <input id="{{ id }}" placeholder="{{ placeholder }}" class="{{ classInput }}"></input>
 `;
