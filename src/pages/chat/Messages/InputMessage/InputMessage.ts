@@ -9,6 +9,8 @@ import { template } from "./template";
 export class InputMessage extends Component{
     constructor(props: Props = {}){
 
+
+
         props.submitButton = new SubmitButton();
 
         props.input = new Input();
@@ -20,7 +22,7 @@ export class InputMessage extends Component{
             class: 'block-input-message',
         }
 
-        super('div' ,props);
+        super('form' ,props);
     }
 
     public render(): DocumentFragment {
