@@ -1,0 +1,18 @@
+.input-message {
+    display: block;
+    border-radius: 50px;
+    background-color: $color-light-shade-gray;
+    border: none;
+    width: 100%;
+    color: $color-dark;
+
+    padding: 10px 0px 10px 15px;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}

@@ -25,6 +25,10 @@ $color-blue: #3369F3;
 @import './pages/chat/Messages/messages.scss';
 @import './pages/chat/Messages/Head/head.scss';
 @import './pages/chat/Messages/Head/Ellipses/ellipses.scss';
+@import './pages/chat/Messages/InputMessage/inputMessage.scss';
+@import './pages/chat/Messages/InputMessage/components/SubmitButton/submitButton.scss';
+@import './pages/chat/Messages/InputMessage/components/Input/input.scss';
+@import './pages/chat/Messages/InputMessage/components/Clip/clip.scss';
 
 @import './layouts/Error/error.scss';
 @import './layouts/Auth/auth.scss';
@@ -33,4 +37,8 @@ $color-blue: #3369F3;
 
 body {
     margin: 0;
+}
+
+button {
+    padding: 0;
 }

@@ -1,12 +1,15 @@
 import { Component } from "../../../service/Component";
 import { Props } from "../../../service/Component/types";
 import { Head } from "./Head";
+import { InputMessage } from "./InputMessage";
 import { template } from "./template";
 
 export class Messages extends Component {
     constructor(props: Props = {}) {
 
-        props.head = new Head({});
+        props.head = new Head();
+
+        props.input = new InputMessage()
 
         props.attribute = {
             class: 'messages'
