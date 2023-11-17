@@ -4,6 +4,7 @@ import { Clip } from "./components/Clip";
 import { Input } from "./components/Input";
 import { SubmitButton } from "./components/SubmitButton";
 import { template } from "./template";
+import {checkSubmitValidation, checkFocusoutValidation} from '../../../../utils/checkValidation';
 
 
 export class InputMessage extends Component{
@@ -20,6 +21,17 @@ export class InputMessage extends Component{
 
         props.attribute = {
             class: 'block-input-message',
+        }
+
+        props.events = {
+            'submit': (e) => {
+                e.preventDefault();
+                checkSubmitValidation(e);
+            },
+            'focusout': (e) => {
+                e.preventDefault();
+                checkFocusoutValidation(e);          
+            }
         }
 
         super('form' ,props);

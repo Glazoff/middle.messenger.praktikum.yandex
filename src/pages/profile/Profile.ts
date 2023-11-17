@@ -4,6 +4,7 @@ import Img from "../../components/Img";
 import Title from "../../components/Title";
 import { Component } from "../../service/Component";
 import { Props } from "../../service/Component/types";
+import { checkFocusoutValidation, checkSubmitValidation } from "../../utils/checkValidation";
 import Button from "./components/Button";
 import Head from "./components/Head";
 import Input from "./components/Input";
@@ -47,8 +48,19 @@ export default class Profile extends Component {
                     },
                 })
 
-
             ],
+            events: {
+                'submit': (e) => {
+                    e.preventDefault();
+                    checkSubmitValidation(e);
+                },
+                'focusout': (e) => {
+                    e.preventDefault();
+                    checkFocusoutValidation(e);          
+                }
+            },
+
+            
             attribute: {
                 class: 'blok-profile__form',
             }
