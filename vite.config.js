@@ -19,10 +19,11 @@ export default defineConfig({
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
       input: {
-        index: resolve(__dirname, 'src'),
+        index: resolve(__dirname, 'src/index.html'),
         auth: resolve(__dirname, 'src/pages/auth'),
         registration: resolve(__dirname, 'src/pages/registration'),
         profile: resolve(__dirname, 'src/pages/profile'),
+        chat: resolve(__dirname, 'src/pages/chat'),
         404: resolve(__dirname, 'src/pages/404'),
         500: resolve(__dirname, 'src/pages/500'),
       },
