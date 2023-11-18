@@ -1,6 +1,4 @@
-
-
-export function renderDOM(query: string, component: any) { // todo присвоить тип component: класс component 
+export function renderDOM(query: string, component: any) {
     const root = document.querySelector(query);
 
     if(!root) {
