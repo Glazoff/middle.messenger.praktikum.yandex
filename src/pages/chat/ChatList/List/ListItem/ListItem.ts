@@ -6,11 +6,12 @@ import { Component } from "../../../../../service/Component";
 import { Props } from "../../../../../service/Component/types";
 import { CountUnread } from "./component";
 import { template } from "./template";
+import ellipseImg from '/img/Ellipse 17.svg'
 
 export class ListItem extends Component {
     constructor(props: Props = {}){ 
 
-        props.img = new Img({attribute: {src: '/img/Ellipse 17.svg', name: 'avatar', class: 'avatar'}})
+        props.img = new Img({attribute: {src: ellipseImg, name: 'avatar', class: 'avatar'}})
 
         props.infoMessage = new Block({
             content: [

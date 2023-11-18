@@ -2,6 +2,7 @@ import Img from "../../../../../../components/Img";
 import { Component } from "../../../../../../service/Component";
 import { Props } from "../../../../../../service/Component/types";
 import { template } from "./template";
+import glassImg from '/img/Glass.svg';
 
 export class SearchInput extends Component {
     constructor(props: Props = {}) {
@@ -11,7 +12,7 @@ export class SearchInput extends Component {
         props.classLabel = 'search-label';
         props.placeholder = 'Поиск';
 
-        props.img = new Img({attribute: {src: 'img/Glass.svg', class: 'glass'} })
+        props.img = new Img({attribute: {src: glassImg, class: 'glass'} })
 
         props.attribute = {
             class: 'chat-list__search-input'

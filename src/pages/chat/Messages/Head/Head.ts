@@ -5,13 +5,14 @@ import { Component } from "../../../../service/Component";
 import { Props } from "../../../../service/Component/types";
 import { Ellipses } from "./Ellipses";
 import { template } from "./template";
+import ellipseImg from '/img/Ellipse 17.svg'
 
 export class Head extends Component{
     constructor(props: Props = {}) {
 
         props.userInfo = new Block({
             content: [
-                new Img({attribute: {src: '/img/Ellipse 17.svg', name: 'avatar', class: 'avatar'}}),
+                new Img({attribute: {src: ellipseImg, name: 'avatar', class: 'avatar'}}),
                 new Title({text: 'Андрей', attribute: {class: 'user-name'}})
             ],
             attribute: { class: 'user-profile'}

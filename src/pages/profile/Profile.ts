@@ -9,6 +9,7 @@ import Button from "./components/Button";
 import Head from "./components/Head";
 import Input from "./components/Input";
 import { template } from "./template";
+import img from '/img/Ellipse 17.svg';
 
 
 export default class Profile extends Component {
@@ -16,7 +17,7 @@ export default class Profile extends Component {
 
         props.head = new Head({
             content: [
-                new Img({attribute: {src: '/img/Ellipse 17.svg', name: 'avatar'}}),
+                new Img({attribute: {src: img, name: 'avatar'}}),
                 new Title({text: 'Иван', attribute: {class: 'title'}})
             ],
         }),
