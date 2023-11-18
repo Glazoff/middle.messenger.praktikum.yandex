@@ -3,7 +3,7 @@ import { renderDOM } from "./utils/renderDOM";
 import Page404 from "./pages/404/404";
 import Page500 from "./pages/500/500";
 import Auth from "./pages/auth/Auth";
-import Main from "./pages/main/Main";
+import Main from "./pages/main1/Main";
 import Registration from "./pages/registration/Registration";
 import Profile from "./pages/profile";
 import { Chat } from "./pages/chat";
