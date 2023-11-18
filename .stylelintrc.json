@@ -1,4 +1,6 @@
 {
+    "rules": {
+    },
     "ignoreFiles": [
       "build/*"
     ]
