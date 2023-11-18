@@ -1,23 +1,22 @@
-import { Component } from "../../../service/Component";
-import { Props } from "../../../service/Component/types";
-import { Head } from "./Head";
-import { List } from "./List";
-import { template } from "./template";
+import Component from '../../../service/Component';
+import { Props } from '../../../service/Component/types';
+import Head from './Head';
+import List from './List';
+import template from './template';
 
-export class ChatList extends Component {
-    constructor(props: Props = {}) {
+export default class ChatList extends Component {
+  constructor(props: Props = {}) {
+    props.head = new Head();
+    props.list = new List();
 
-        props.head = new Head()
-        props.list = new List()
+    props.attribute = {
+      class: 'chat-list',
+    };
 
-        props.attribute = {
-            class: 'chat-list'
-        }
+    super('div', props);
+  }
 
-        super('div', props)
-    }
-
-    public render(): DocumentFragment {
-        return this.compile(template, this.props)
-    }
+  public render(): DocumentFragment {
+    return this.compile(template, this.props);
+  }
 }

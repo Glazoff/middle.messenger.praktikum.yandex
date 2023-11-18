@@ -1,1 +1,1 @@
-export {Clip} from './Clip';
+export { default } from './Clip';

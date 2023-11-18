@@ -1,21 +1,28 @@
-import {INPUT, Inputs} from './const';
+import { INPUT, Inputs } from './const';
 
-export const checkSubmitValidation = (e: Event) => {
-    const form = e.target as HTMLFormElement; 
-    const elements = Array.from(form.elements);
-    const res: Record<string, string> = {};
+const checkSubmitValidation = (e: Event) => {
+  const form = e.target as HTMLFormElement;
+  const elements = Array.from(form.elements);
+  const res: Record<string, string> = {};
 
-    elements.forEach((e) => {
-        if(e.tagName === INPUT) {
-            const input: HTMLInputElement = e as HTMLInputElement;
-            const {value, name} = input;
+  // eslint-disable-next-line @typescript-eslint/no-shadow
+  elements.forEach((e) => {
+    if (e.tagName === INPUT) {
+      const input: HTMLInputElement = e as HTMLInputElement;
+      const { value, name } = input;
 
-            if(name in Inputs) {
-                Inputs[name].test(value) ? input.style.color = 'inherit': input.style.color = 'red';
-                res[name] = value
-            }
+      if (name in Inputs) {
+        if (Inputs[name].test(value)) {
+          input.style.color = 'inherit';
+        } else {
+          input.style.color = 'red';
         }
-    })
+        res[name] = value;
+      }
+    }
+  });
 
-    console.log(res);
+  console.log(res);
 };
+
+export default checkSubmitValidation;

@@ -1,1 +1,1 @@
-export {Ellipses} from './Ellipses';
+export { default } from './Ellipses';

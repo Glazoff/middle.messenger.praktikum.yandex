@@ -1,12 +1,12 @@
-import { Component } from "../../service/Component";
-import { Props } from "../../service/Component/types";
+import Component from '../../service/Component';
+import { Props } from '../../service/Component/types';
 
 export default class Title extends Component {
-    constructor(props: Props) {
-        super('h1', props);
-    }
+  constructor(props: Props) {
+    super('h1', props);
+  }
 
-    render() {
-        return this.compile(`{{ text }}`, this.props)
-    }
-};
+  render() {
+    return this.compile('{{ text }}', this.props);
+  }
+}

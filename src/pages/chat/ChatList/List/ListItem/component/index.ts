@@ -1,1 +1,1 @@
-export {CountUnread} from './CountUnread';
+export { default } from './CountUnread';

@@ -1,18 +1,17 @@
-import { Component } from "../../service/Component";
-import { Props } from "../../service/Component/types";
-import { template } from "./template";
+import Component from '../../service/Component';
+import { Props } from '../../service/Component/types';
+import template from './template';
 
-export class Input extends Component {
-    constructor(props: Props) {
-        props.attribute = {
-            class: 'input-wrapper',
-        };
+export default class Input extends Component {
+  constructor(props: Props) {
+    props.attribute = {
+      class: 'input-wrapper',
+    };
 
-        super('div' ,props)
-    }
+    super('div', props);
+  }
 
-    render() {
-        return this.compile(template, this.props);
-    }
-
+  render() {
+    return this.compile(template, this.props);
+  }
 }

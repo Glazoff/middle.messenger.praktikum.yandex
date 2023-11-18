@@ -1,3 +1,5 @@
-export const template = `
+const template = `
 {{{ buttonProfile }}}
-`
+`;
+
+export default template;

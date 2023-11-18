@@ -1,1 +1,1 @@
-export {AuthLayouts} from './AuthLayouts';
+export { default } from './AuthLayouts';

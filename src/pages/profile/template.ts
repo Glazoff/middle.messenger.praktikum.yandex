@@ -1,5 +1,7 @@
-export const template = `
+const template = `
     {{{ head }}}
     {{{ img }}}
     {{{ form }}}
 `;
+
+export default template;

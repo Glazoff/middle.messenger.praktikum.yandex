@@ -9,11 +9,11 @@ export type AbstractProps = Record<string | symbol, unknown>;
 export type Lists<C> = Record<string, Array<C | string>>;
 
 export type Props = {
-    events?: Events;
-    attribute?: Attributes;
+  events?: Events;
+  attribute?: Attributes;
 } & AbstractProps;
 
 export type Meta = {
-    tagName: string
-    props: AbstractProps;
+  tagName: string
+  props: AbstractProps;
 };

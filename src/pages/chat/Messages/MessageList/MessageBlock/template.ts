@@ -1,4 +1,6 @@
-export const template = `
+const template = `
     {{{text}}}
     {{{time}}}
-`
+`;
+
+export default template;

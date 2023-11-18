@@ -1,1 +1,1 @@
-export {default} from './500';
+export { default } from './500';

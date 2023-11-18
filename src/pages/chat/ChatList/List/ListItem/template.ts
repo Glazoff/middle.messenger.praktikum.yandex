@@ -1,4 +1,4 @@
-export const template = `
+const template = `
     {{{ img }}}
 
     {{{ infoMessage }}}
@@ -6,3 +6,5 @@ export const template = `
     {{{ time }}}
     {{{ countUnread }}}
 `;
+
+export default template;

@@ -1,5 +1,7 @@
-export const template = `
+const template = `
     {{{ head }}}
 
     {{{ list }}}
-`
+`;
+
+export default template;

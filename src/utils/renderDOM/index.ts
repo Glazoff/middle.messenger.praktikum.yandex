@@ -1,1 +1,1 @@
-export {renderDOM} from './renderDOM';
+export { default } from './renderDOM';

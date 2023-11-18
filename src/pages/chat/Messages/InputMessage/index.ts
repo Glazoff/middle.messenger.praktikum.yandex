@@ -1,1 +1,1 @@
-export {InputMessage} from './InputMessage';
+export { default } from './InputMessage';

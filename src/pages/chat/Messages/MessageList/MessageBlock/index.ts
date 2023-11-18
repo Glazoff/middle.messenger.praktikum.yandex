@@ -1,1 +1,1 @@
-export {MessageBlock} from './MessageBlock';
+export { default } from './MessageBlock';

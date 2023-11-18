@@ -1,27 +1,26 @@
-import { Component } from "../../../service/Component";
-import { Props } from "../../../service/Component/types";
-import { Head } from "./Head";
-import { InputMessage } from "./InputMessage";
-import { MessageList } from "./MessageList";
-import { template } from "./template";
+import Component from '../../../service/Component';
+import { Props } from '../../../service/Component/types';
+import Head from './Head';
+import InputMessage from './InputMessage';
+import MessageList from './MessageList';
+import template from './template';
 
-export class Messages extends Component {
-    constructor(props: Props = {}) {
+export default class Messages extends Component {
+  constructor(props: Props = {}) {
+    props.head = new Head();
 
-        props.head = new Head();
+    props.messageList = new MessageList();
 
-        props.messageList = new MessageList();
+    props.input = new InputMessage();
 
-        props.input = new InputMessage()
+    props.attribute = {
+      class: 'messages',
+    };
 
-        props.attribute = {
-            class: 'messages'
-        }
+    super('div', props);
+  }
 
-        super('div', props);
-    }
-
-    public render(): DocumentFragment {
-        return this.compile(template, this.props)
-    }
+  public render(): DocumentFragment {
+    return this.compile(template, this.props);
+  }
 }

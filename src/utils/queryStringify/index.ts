@@ -1,1 +1,1 @@
-export {queryStringify} from './queryStringify';
+export { default } from './queryStringify';

@@ -1,43 +1,38 @@
-import { Component } from "../../../../service/Component";
-import { Props } from "../../../../service/Component/types";
-import { Clip } from "./components/Clip";
-import { Input } from "./components/Input";
-import { SubmitButton } from "./components/SubmitButton";
-import { template } from "./template";
-import {checkSubmitValidation, checkFocusoutValidation} from '../../../../utils/checkValidation';
+import Component from '../../../../service/Component';
+import { Props } from '../../../../service/Component/types';
+import Clip from './components/Clip';
+import Input from './components/Input';
+import SubmitButton from './components/SubmitButton';
+import template from './template';
+import { checkSubmitValidation, checkFocusoutValidation } from '../../../../utils/checkValidation';
 
+export default class InputMessage extends Component {
+  constructor(props: Props = {}) {
+    props.submitButton = new SubmitButton();
 
-export class InputMessage extends Component{
-    constructor(props: Props = {}){
+    props.input = new Input();
 
+    props.attachButton = new Clip();
 
+    props.attribute = {
+      class: 'block-input-message',
+    };
 
-        props.submitButton = new SubmitButton();
+    props.events = {
+      submit: (e) => {
+        e.preventDefault();
+        checkSubmitValidation(e);
+      },
+      focusout: (e) => {
+        e.preventDefault();
+        checkFocusoutValidation(e);
+      },
+    };
 
-        props.input = new Input();
+    super('form', props);
+  }
 
-        props.attachButton = new Clip();
-
-
-        props.attribute = {
-            class: 'block-input-message',
-        }
-
-        props.events = {
-            'submit': (e) => {
-                e.preventDefault();
-                checkSubmitValidation(e);
-            },
-            'focusout': (e) => {
-                e.preventDefault();
-                checkFocusoutValidation(e);          
-            }
-        }
-
-        super('form' ,props);
-    }
-
-    public render(): DocumentFragment {
-        return this.compile(template, this.props)
-    }
+  public render(): DocumentFragment {
+    return this.compile(template, this.props);
+  }
 }

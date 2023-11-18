@@ -1,1 +1,1 @@
-export {ButtonProfile} from './ButtonProfile';
+export { default } from './ButtonProfile';

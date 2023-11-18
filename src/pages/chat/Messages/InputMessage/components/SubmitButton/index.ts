@@ -1,1 +1,1 @@
-export {SubmitButton} from './SubmitButton';
+export { default } from './SubmitButton';

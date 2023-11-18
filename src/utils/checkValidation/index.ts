@@ -1,2 +1,4 @@
-export {checkSubmitValidation} from './checkSubmitValidation';
-export {checkFocusoutValidation} from './checkFocusoutValidation';
+import checkSubmitValidation from './checkSubmitValidation';
+import checkFocusoutValidation from './checkFocusoutValidation';
+
+export { checkSubmitValidation, checkFocusoutValidation };

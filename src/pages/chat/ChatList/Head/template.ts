@@ -1,5 +1,7 @@
-export const template = `
+const template = `
     {{{ buttonProfile }}}
 
     {{{ searchInput }}}
 `;
+
+export default template;

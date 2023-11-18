@@ -1,3 +1,5 @@
-export const template = `
+const template = `
     {{{ listChat }}}
 `;
+
+export default template;

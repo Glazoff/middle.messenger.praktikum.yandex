@@ -1,5 +1,7 @@
-export const template = `
+const template = `
     {{{ chatList }}}
 
     {{{ messages }}}
 `;
+
+export default template;

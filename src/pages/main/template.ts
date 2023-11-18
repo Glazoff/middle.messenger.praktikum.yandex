@@ -1,4 +1,4 @@
-export const template = `
+const template = `
     <ul>
         <li><a href="/auth">Auth</a></li>
         <li><a href="/registration">Registration</a></li>
@@ -8,3 +8,5 @@ export const template = `
         <li><a href="/chat">Chat</a></li>
     </ul>
 `;
+
+export default template;
