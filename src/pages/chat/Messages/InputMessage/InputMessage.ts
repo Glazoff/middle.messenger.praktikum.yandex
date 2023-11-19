@@ -6,11 +6,13 @@ import SubmitButton from './components/SubmitButton';
 import template from './template';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../../../utils/checkValidation';
 
+const inputs = [new Input({ name: 'message' })];
+
 export default class InputMessage extends Component {
   constructor(props: Props = {}) {
     props.submitButton = new SubmitButton();
 
-    props.input = new Input();
+    props.input = inputs;
 
     props.attachButton = new Clip();
 
@@ -21,11 +23,11 @@ export default class InputMessage extends Component {
     props.events = {
       submit: (e) => {
         e.preventDefault();
-        checkSubmitValidation(e);
+        checkSubmitValidation(e, inputs);
       },
       focusout: (e) => {
         e.preventDefault();
-        checkFocusoutValidation(e);
+        checkFocusoutValidation(e, inputs);
       },
     };
 

@@ -27,4 +27,11 @@
     &:last-child {
         border: none;
     }
+
+    .error-text {
+        position: absolute;
+        font-size: 8px;
+        color: $orange-red-crayola;
+        right: 0px;
+    }
 }

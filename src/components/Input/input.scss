@@ -30,5 +30,10 @@
         font-size: 12px;
         transform: translateY(-100%) scale(0.75);
     }
-    
+
+    .error-text {
+        position: absolute;
+        font-size: 8px;
+        color: $orange-red-crayola;
+    }
 }

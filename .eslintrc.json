@@ -21,6 +21,7 @@
       "no-console": 0,
       "no-restricted-exports": 0,
       "prefer-regex-literals": 0,
-      "import/no-absolute-path": 0
+      "import/no-absolute-path": 0,
+      "no-plusplus": 0
       }
 }

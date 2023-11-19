@@ -6,18 +6,20 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../utils/checkValidation';
 
+const inputs = [
+  new Input({
+    id: 'email', placeholder: 'Логин', type: 'login', name: 'login',
+  }),
+  new Input({
+    id: 'password', placeholder: 'Пароль', type: 'password', name: 'password',
+  }),
+];
+
 export default class Auth extends Component {
   constructor(tag = 'div', props: Props = {}) {
     props.content = new AuthLayouts({
       title: 'Вход',
-      inputs: [
-        new Input({
-          id: 'email', placeholder: 'Логин', type: 'login', name: 'message',
-        }),
-        new Input({
-          id: 'password', placeholder: 'Пароль', type: 'password', name: 'password',
-        }),
-      ],
+      inputs,
       buttons: [
         new Button({ text: 'Авторизоваться', attribute: { class: 'button filled', type: 'submit' } }),
         new Button({ text: 'Нет аккаунта', attribute: { class: 'button' } }),
@@ -25,11 +27,11 @@ export default class Auth extends Component {
       events: {
         submit: (e) => {
           e.preventDefault();
-          checkSubmitValidation(e);
+          checkSubmitValidation(e, inputs);
         },
         focusout: (e) => {
           e.preventDefault();
-          checkFocusoutValidation(e);
+          checkFocusoutValidation(e, inputs);
         },
       },
     });
