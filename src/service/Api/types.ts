@@ -8,3 +8,7 @@ export type Options = {
   data: Data,
   method: METHODS,
 };
+
+export type ApiMethod = (url: string, options: Options) => Promise<unknown>;
+
+export type ApiRequest = (url: string, options: Options, timeout: number) => Promise<unknown>;

@@ -1,17 +1,17 @@
-import { Options } from './types';
+import { ApiMethod, ApiRequest } from './types';
 import queryStringify from '../../utils/queryStringify';
 import METHODS from './const';
 
 export default class Api {
-  get = (url: string, options: Options) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
+  get: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 
-  post = (url: string, options: Options) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  post: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
 
-  put = (url: string, options: Options) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  put: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
 
-  delete = (url: string, options: Options) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  delete: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
-  request = (url: string, options: Options, timeout = 5000) => {
+  request: ApiRequest = (url, options, timeout = 5000) => {
     const { headers = {}, method, data } = options;
 
     return new Promise((resolve, reject) => {
