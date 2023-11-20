@@ -1,17 +1,53 @@
-$color-red: #FF0000;
-$color-grey-light: #EAEAEA;
+$color-red: #ff0000; 
+$color-grey-light: #eaeaea; 
+$color-grey-lotion: #fbfbfb; 
+$color-light-shade-gray: #efefef;
 $color-grey: #999999;
-$color-dark: #1E1E1E;
+$color-dark: #1e1e1e; 
 $color-white: #ffffff;
-$color-blue: #3369F3;
+$color-blue: #3369f3; 
+$color-blue-alice: #e4edfd;
+$color-smoky-white: #f8f8f8; 
+$orange-red-crayola: #ff2f2f;
 
-@import './partials/button/button.scss';
-@import './partials/input/input.scss';
-@import './partials/inputProfile/inputProfile.scss';
-@import './partials/buttonProfile/buttonProfile.scss';
-@import './partials/title/title.scss';
-
-@import './partials/layouts/auth/auth.scss';
-@import './partials/layouts/error/error.scss';
+@import './components/Button/button.scss';
+@import './components/Input/input.scss';
+@import './pages/profile/components/Input/inputProfile.scss';
+@import './pages/profile/components/Button/buttonProfile.scss';
+@import './components/Title/title.scss';
 
 @import './pages/profile/profile.scss';
+@import './pages/chat/chat.scss';
+@import './pages/chat/ChatList/Head/components/SearchInput/serachInput.scss';
+@import './pages/chat/ChatList/Head/components/ButtonProfile/buttonProfile.scss';
+@import './pages/chat/ChatList/Head/head.scss';
+@import './pages/chat/ChatList/List/list.scss';
+@import './pages/chat/ChatList/List/ListItem/listItem.scss';
+@import './pages/chat/ChatList/List/ListItem/component/countUnread.scss';
+
+@import './pages/chat/Messages/messages.scss';
+@import './pages/chat/Messages/Head/head.scss';
+@import './pages/chat/Messages/Head/Ellipses/ellipses.scss';
+@import './pages/chat/Messages/InputMessage/inputMessage.scss';
+@import './pages/chat/Messages/InputMessage/components/SubmitButton/submitButton.scss';
+@import './pages/chat/Messages/InputMessage/components/Input/input.scss';
+@import './pages/chat/Messages/InputMessage/components/Clip/clip.scss';
+@import './pages/chat/Messages/MessageList/messageList.scss';
+@import './pages/chat/Messages/MessageList/MessageBlock/messageBlock.scss';
+
+@import './layouts/Error/error.scss';
+@import './layouts/Auth/auth.scss';
+
+@import './pages/chat/ChatList/chatList.scss';
+
+body {
+    margin: 0;
+}
+
+button {
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}

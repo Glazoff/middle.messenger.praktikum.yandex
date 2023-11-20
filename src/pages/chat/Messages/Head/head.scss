@@ -1,0 +1,29 @@
+.head-messages {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px 0px;
+
+    border-bottom: 1px solid $color-grey-light;
+
+    box-sizing: border-box;
+
+    .user-profile {
+        display: flex;
+        column-gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+    .user-name {
+        font-size: 13px;
+        color: $color-dark;
+    }
+}

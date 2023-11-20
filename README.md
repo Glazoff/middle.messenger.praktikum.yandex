@@ -4,6 +4,18 @@
 
 За основу дизайна взят [макет](https://www.figma.com/file/Xvi8XumEhUEl80RTlRkLCb/Chat_external_link-(Copy)?node-id=0%3A1&mode=dev) от Яндекс.Практикум 
 
+### Функциональность 
+На данный момент приложение может:
++ Валидировать поля по событиям `submit` и `focusout` c помощью регулярных выражений.
++ Выводить в консоль браузера результат события `submit` из формы.
+
+### Технологии
++ Проект написан на основне компонетного подхода, основой которой служит [class Component](https://github.com/Glazoff/middle.messenger.praktikum.yandex/tree/sprint_2/src/service/Component).
+
++ [handlebars](https://github.com/handlebars-lang/handlebars.js)
++ [typescript](https://www.typescriptlang.org)
++ [uuid](https://github.com/uuidjs/uuid)
+
 ### Команды 
 Запустить проект для разработки:
 ```bash
@@ -20,15 +32,24 @@ npm run build
 npm run start
 ```
 
+Запуск литинга:
+```bash
+npm run lint
+```
+
 ### Деплой проекта
 Проект развернут на сервисе Netlify
 Ссылка на проект: https://deploy--cozy-babka-3ed8f9.netlify.app
 
 ### Ссылки на страницы проекта 
 
-1. [auth](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/auth/auth)
-2. [registration](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/registration/registration)
-3. [profile](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/profile/profile)
-4. [404](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/404/404)
-5. [500](https://deploy--cozy-babka-3ed8f9.netlify.app/pages/500/500)
-6. [chat](https://deploy--cozy-babka-3ed8f9.netlify.app/pages) на данном этапе ссылка просто заглушка, будет реализована в следующем спринте
+1. [auth](https://deploy--cozy-babka-3ed8f9.netlify.app/auth)
+2. [registration](https://deploy--cozy-babka-3ed8f9.netlify.app/registration)
+3. [profile](https://deploy--cozy-babka-3ed8f9.netlify.app/profile)
+4. [404](https://deploy--cozy-babka-3ed8f9.netlify.app/404)
+5. [500](https://deploy--cozy-babka-3ed8f9.netlify.app/500)
+6. [chat](https://deploy--cozy-babka-3ed8f9.netlify.app/chat)
+
+### To do
++ Проект проходит линтинг, но остаются варнинги, для экономии времени, решил их оставить, чтобы пофиксить в будущем
++ Для `input` message на странице чата, частично подключена валидация, но не выводим никакой информации. Сделано намеренно,тк логичным будет блокировать кнопку отправки вместо вывода сообщения. Оставил для доработок на будущее.

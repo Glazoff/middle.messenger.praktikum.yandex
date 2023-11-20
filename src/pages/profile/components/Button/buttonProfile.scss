@@ -1,0 +1,25 @@
+.button_profile {
+    display: block;
+    border: none;
+    height: 37px;
+    text-align: center;
+    color: $color-blue;
+    background: none;
+    padding: 0;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        border-bottom: 1px solid $color-grey-light;
+        width: 510px;
+        overflow: visible;
+        bottom: 0;
+
+    }
+}
+
+.red {
+    color: $color-red;
+}

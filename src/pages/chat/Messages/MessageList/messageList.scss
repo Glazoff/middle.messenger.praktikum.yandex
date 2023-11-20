@@ -1,0 +1,11 @@
+.message-list {
+    display: flex;
+    overflow: auto;
+}
+
+.wrapper-scroll {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    flex: 1;
+}

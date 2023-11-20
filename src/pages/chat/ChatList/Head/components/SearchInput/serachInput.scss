@@ -1,0 +1,32 @@
+.chat-list__search-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    position: relative;
+    
+    .search-input {
+        display: block;
+        border-radius: 5px;
+        background-color: $color-light-shade-gray;
+        border: none;
+        width: 100%;
+        color: $color-dark;
+
+        padding: 10px 0px 10px 45px;
+
+        &:focus {
+            outline: none;
+        }
+    
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    .glass {
+        position: absolute;
+        left: 10px;
+        width: 25px;
+    }
+}
