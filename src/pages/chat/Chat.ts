@@ -5,7 +5,7 @@ import Messages from './Messages';
 import template from './template';
 
 export default class Chat extends Component {
-  constructor(props: Props = {}) {
+  constructor(tag = 'div', props: Props = {}) {
     props.chatList = new ChatList();
 
     props.messages = new Messages();
@@ -14,7 +14,7 @@ export default class Chat extends Component {
       class: 'chat',
     };
 
-    super('div', props);
+    super(tag, props);
   }
 
   public render(): DocumentFragment {
