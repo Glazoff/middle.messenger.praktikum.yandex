@@ -5,6 +5,9 @@ import template from './template';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../utils/checkValidation';
+import Router from '../../service/Router/Router';
+
+const router = new Router('#app');
 
 const inputs = [
   new Input({
@@ -21,8 +24,20 @@ export default class Auth extends Component {
       title: 'Вход',
       inputs,
       buttons: [
-        new Button({ text: 'Авторизоваться', attribute: { class: 'button filled', type: 'submit' } }),
-        new Button({ text: 'Нет аккаунта', attribute: { class: 'button' } }),
+        new Button({
+          text: 'Авторизоваться',
+          attribute: { class: 'button filled', type: 'submit' },
+          events: {
+            click: () => { router.go('/messenger'); },
+          },
+        }),
+        new Button({
+          text: 'Нет аккаунта',
+          attribute: { class: 'button' },
+          events: {
+            click: () => { router.go('/sign-up'); },
+          },
+        }),
       ],
       events: {
         submit: (e) => {

@@ -18,9 +18,7 @@ class Router {
       return Router.instance;
     }
 
-    // this.routes = [];
     this.history = window.history;
-    // this.currentRoute = null;
     this.rootQuery = rootQuery;
 
     Router.instance = this;
@@ -39,7 +37,6 @@ class Router {
       const w = event.target as Window;
       this.onRoute(w.location.pathname);
     });
-    // .bind(this);
 
     this.onRoute(window.location.pathname);
   }
@@ -55,7 +52,6 @@ class Router {
     }
 
     this.currentRoute = route;
-    // route.render(route, pathname);
     route.render();
   }
 

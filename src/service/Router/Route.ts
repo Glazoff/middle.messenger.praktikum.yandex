@@ -27,7 +27,7 @@ class Route {
 
   leave() {
     if (this.block) {
-      this.block.hide();
+      this.block = null;
     }
   }
 
@@ -40,10 +40,7 @@ class Route {
       // eslint-disable-next-line new-cap
       this.block = new this.blockClass();
       renderDOM(this.props.rootQuery as string, this.block);
-      return;
     }
-
-    this.block.show();
   }
 }
 
