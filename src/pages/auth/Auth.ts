@@ -5,9 +5,7 @@ import template from './template';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../utils/checkValidation';
-import Router from '../../service/Router/Router';
-
-const router = new Router('#app');
+import router from '../../service/Router/Router';
 
 const inputs = [
   new Input({

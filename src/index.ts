@@ -4,9 +4,7 @@ import Auth from './pages/auth/Auth';
 import Registration from './pages/registration/Registration';
 import Profile from './pages/profile';
 import Chat from './pages/chat';
-import Router from './service/Router/Router';
-
-const router = new Router('#app');
+import router from './service/Router/Router';
 
 router
   .use('/', Auth)
