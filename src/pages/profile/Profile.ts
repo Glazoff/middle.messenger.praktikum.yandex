@@ -6,10 +6,13 @@ import Component from '../../service/Component';
 import { Props } from '../../service/Component/types';
 import { checkFocusoutValidation, checkSubmitValidation } from '../../utils/checkValidation';
 import Button from './components/Button';
+import BaseButton from '../../components/Button';
 import Head from './components/Head';
 import Input from './components/Input';
 import template from './template';
 import img from '/img/Ellipse 17.svg';
+import backImg from '/img/back.svg';
+import router from '../../service/Router/Router';
 
 const inputs = [
   new Input({
@@ -54,7 +57,7 @@ export default class Profile extends Component {
           content: [
             new Button({ text: 'Изменить данные' }),
             new Button({ text: 'Изменить пароль' }),
-            new Button({ text: 'Выйти', red: true }),
+            new Button({ text: 'Выйти', red: true, events: { click: () => { router.go('/'); } } }),
           ],
           attribute: {
             class: 'blok-profile__buttons',
@@ -76,6 +79,12 @@ export default class Profile extends Component {
       attribute: {
         class: 'blok-profile__form',
       },
+    });
+
+    props.backButton = new BaseButton({
+      attribute: { class: 'back-button' },
+      events: { click: () => { router.back(); } },
+      icon: new Img({ attribute: { src: backImg } }),
     });
 
     props.attribute = {

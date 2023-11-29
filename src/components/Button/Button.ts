@@ -7,6 +7,6 @@ export default class Button extends Component {
   }
 
   public render(): DocumentFragment {
-    return this.compile('{{ text }}', this.props);
+    return this.compile('{{ text }} {{{ icon }}}', this.props);
   }
 }

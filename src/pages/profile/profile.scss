@@ -3,10 +3,9 @@
     width: 510px;
     min-height: 450px;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 15vh;
+    margin-left: auto;
+    margin-right: auto;
 
     display: flex;
     flex-direction: column;
@@ -50,4 +49,15 @@
         width: 100%;
         margin: 0;
     }
+}
+
+.back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100vh;
+    border: none;
+    border-right: 1px solid $color-grey-light; 
+    background-color: $color-grey-lotion;
 }
