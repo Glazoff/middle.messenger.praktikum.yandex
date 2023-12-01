@@ -1,18 +1,25 @@
-import { ApiMethod, ApiRequest } from './types';
+import { ApiMethod, OptionsRequest } from './types';
 import queryStringify from '../../utils/queryStringify';
 import METHODS from './const';
 
 export default class Api {
-  get: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
+  public baseUrl: string;
 
-  post: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl;
+  }
 
-  put: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  get: ApiMethod = (url, options) => this.request(this.baseUrl + url, { ...options, method: METHODS.GET }, options && options.timeout);
 
-  delete: ApiMethod = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  post: ApiMethod = (url, options) => this.request(this.baseUrl + url, { ...options, method: METHODS.POST }, options && options.timeout);
 
-  request: ApiRequest = (url, options, timeout = 5000) => {
-    const { headers = {}, method, data } = options;
+  put: ApiMethod = (url, options) => this.request(this.baseUrl + url, { ...options, method: METHODS.PUT }, options && options.timeout);
+
+  // eslint-disable-next-line max-len
+  delete: ApiMethod = (url, options) => this.request(this.baseUrl + url, { ...options, method: METHODS.DELETE }, options && options.timeout);
+
+  request = (url: string, options: OptionsRequest, timeout = 5000) => {
+    const { headers = {}, method, data = {} } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {
@@ -47,8 +54,11 @@ export default class Api {
 
       if (isGet || !data) {
         xhr.send();
-      } else {
+      } else if (data instanceof FormData) {
         xhr.send(data);
+      } else {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(data));
       }
     });
   };
