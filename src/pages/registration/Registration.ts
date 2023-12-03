@@ -6,6 +6,8 @@ import { Props } from '../../service/Component/types';
 import template from './template';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../utils/checkValidation';
 import router from '../../service/Router/Router';
+import AuthController from '../../controllers/AuthController';
+import { SignupUser } from '../../api/auth-api';
 
 const inputs = [
   new Input({
@@ -40,11 +42,6 @@ export default class Registration extends Component {
         new Button({
           text: 'Зарегистрироваться',
           attribute: { class: 'button filled' },
-          events: {
-            click: () => {
-              router.go('/messenger');
-            },
-          },
         }),
         new Button({
           text: 'Войти',
@@ -59,7 +56,8 @@ export default class Registration extends Component {
       events: {
         submit: (e) => {
           e.preventDefault();
-          checkSubmitValidation(e, inputs);
+          const data = checkSubmitValidation(e, inputs);
+          AuthController.signupUser(data as SignupUser);
         },
         focusout: (e) => {
           e.preventDefault();

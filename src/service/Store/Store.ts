@@ -7,7 +7,16 @@ export enum StoreEvents {
 }
 
 class Store extends EventBus {
-  private state: Indexed = {};
+  private state: Indexed = {
+    user: {
+      email: '',
+      first_name: '',
+      login: '',
+      second_name: '',
+      display_name: '',
+      phone: '',
+    },
+  };
 
   public getState() {
     return this.state;

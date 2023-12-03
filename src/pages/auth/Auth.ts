@@ -6,6 +6,8 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../utils/checkValidation';
 import router from '../../service/Router/Router';
+import AuthController from '../../controllers/AuthController';
+import { SigninUser } from '../../api/auth-api';
 
 const inputs = [
   new Input({
@@ -25,9 +27,6 @@ export default class Auth extends Component {
         new Button({
           text: 'Авторизоваться',
           attribute: { class: 'button filled', type: 'submit' },
-          events: {
-            click: () => { router.go('/messenger'); },
-          },
         }),
         new Button({
           text: 'Нет аккаунта',
@@ -40,7 +39,8 @@ export default class Auth extends Component {
       events: {
         submit: (e) => {
           e.preventDefault();
-          checkSubmitValidation(e, inputs);
+          const data = checkSubmitValidation(e, inputs);
+          AuthController.singin(data as SigninUser);
         },
         focusout: (e) => {
           e.preventDefault();

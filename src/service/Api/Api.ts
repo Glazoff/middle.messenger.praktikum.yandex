@@ -52,6 +52,8 @@ export default class Api {
       xhr.timeout = timeout;
       xhr.ontimeout = reject;
 
+      xhr.withCredentials = true;
+
       if (isGet || !data) {
         xhr.send();
       } else if (data instanceof FormData) {

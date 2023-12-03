@@ -13,30 +13,44 @@ import template from './template';
 import img from '/img/Ellipse 17.svg';
 import backImg from '/img/back.svg';
 import router from '../../service/Router/Router';
+import AuthController from '../../controllers/AuthController';
+import connect from '../../hocs/connect';
+import { Indexed } from '../../types';
+import { User } from '../../api/auth-api';
 
-const inputs = [
-  new Input({
-    id: 'email', placeholder: 'Почта', type: 'email', value: 'pochta@yandex.ru', name: 'email',
-  }),
-  new Input({
-    id: 'login', placeholder: 'Логин', type: 'text', value: 'ivanivanov', name: 'login',
-  }),
-  new Input({
-    id: 'fname', placeholder: 'Имя', type: 'text', value: 'Иван', name: 'first_name',
-  }),
-  new Input({
-    id: 'lname', placeholder: 'Фамилия', type: 'text', value: 'Иванов', name: 'second_name',
-  }),
-  new Input({
-    id: 'name_chat', placeholder: 'Имя в чате', type: 'text', value: 'Иван', name: 'display_name',
-  }),
-  new Input({
-    id: 'tel', placeholder: 'Телефон', type: 'tel', value: '+7 (909) 967 30 30', name: 'phone',
-  }),
-];
-
-export default class Profile extends Component {
+class Profile extends Component {
   constructor(tag = 'div', props: Props = {}) {
+    const { user } = props as { user: User };
+    const {
+      email,
+      first_name: firstName,
+      login,
+      second_name: secondName,
+      display_name: displayName,
+      phone,
+    } = user;
+
+    const inputs = [
+      new Input({
+        id: 'email', placeholder: 'Почта', type: 'email', value: email, name: 'email',
+      }),
+      new Input({
+        id: 'login', placeholder: 'Логин', type: 'text', value: login, name: 'login',
+      }),
+      new Input({
+        id: 'fname', placeholder: 'Имя', type: 'text', value: firstName, name: 'first_name',
+      }),
+      new Input({
+        id: 'lname', placeholder: 'Фамилия', type: 'text', value: secondName, name: 'second_name',
+      }),
+      new Input({
+        id: 'name_chat', placeholder: 'Имя в чате', type: 'text', value: displayName, name: 'display_name',
+      }),
+      new Input({
+        id: 'tel', placeholder: 'Телефон', type: 'tel', value: phone, name: 'phone',
+      }),
+    ];
+
     props.head = new Head({
       content: [
         new Img({ attribute: { src: img, name: 'avatar' } }),
@@ -57,7 +71,15 @@ export default class Profile extends Component {
           content: [
             new Button({ text: 'Изменить данные' }),
             new Button({ text: 'Изменить пароль' }),
-            new Button({ text: 'Выйти', red: true, events: { click: () => { router.go('/'); } } }),
+            new Button({
+              text: 'Выйти',
+              red: true,
+              events: {
+                click: () => {
+                  AuthController.logout();
+                },
+              },
+            }),
           ],
           attribute: {
             class: 'blok-profile__buttons',
@@ -93,7 +115,26 @@ export default class Profile extends Component {
     super(tag, props);
   }
 
+  public componentDidMount() {
+    AuthController.getUser();
+  }
+
   render() {
     return this.compile(template, this.props);
   }
 }
+
+function mapToProps(store: Indexed) {
+  return {
+    user: {
+      email: store.user.email,
+      first_name: store.user.first_name,
+      login: store.user.login,
+      second_name: store.user.second_name,
+      display_name: store.user.display_name,
+      phone: store.user.phone,
+    },
+  };
+}
+
+export default connect(Profile, mapToProps);
