@@ -51,10 +51,12 @@ class Profile extends Component {
       }),
     ];
 
+    props.inputs = inputs;
+
     props.head = new Head({
       content: [
         new Img({ attribute: { src: img, name: 'avatar' } }),
-        new Title({ text: 'Иван', attribute: { class: 'title' } }),
+        new Title({ text: displayName, attribute: { class: 'title' } }),
       ],
     });
 
@@ -117,6 +119,28 @@ class Profile extends Component {
 
   public componentDidMount() {
     AuthController.getUser();
+  }
+
+  setProps(newProps: Props) {
+    super.setProps(newProps);
+    const user = this.props.user as User;
+
+    this.lists.inputs.forEach((i) => {
+      if (i instanceof Input) {
+        const input = i as Input;
+        const name = input.props.name as string;
+
+        if (name in user) {
+          input.setProps({ value: user[name as keyof User] });
+        }
+      }
+    });
+
+    this.children.head.lists.content.forEach((item) => {
+      if (item instanceof Title) {
+        item.setProps({ text: user.display_name });
+      }
+    });
   }
 
   render() {

@@ -18,7 +18,7 @@ export default class Api {
   // eslint-disable-next-line max-len
   delete: ApiMethod = (url, options) => this.request(this.baseUrl + url, { ...options, method: METHODS.DELETE }, options && options.timeout);
 
-  request = (url: string, options: OptionsRequest, timeout = 5000) => {
+  request = (url: string, options: OptionsRequest, timeout = 5000): Promise<XMLHttpRequest> => {
     const { headers = {}, method, data = {} } = options;
 
     return new Promise((resolve, reject) => {
