@@ -15,6 +15,7 @@ class Store extends EventBus {
       second_name: '',
       display_name: '',
       phone: '',
+      avatar: '',
     },
   };
 

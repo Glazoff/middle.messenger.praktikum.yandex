@@ -15,6 +15,8 @@ import img from '/img/Ellipse 17.svg';
 import backImg from '/img/back.svg';
 import router from '../../service/Router/Router';
 
+const hostResourse = 'https://ya-praktikum.tech/api/v2/resources';
+
 class EditProfile extends Component {
   constructor(tag = 'div', props: Props = {}) {
     const { user } = props as { user: User };
@@ -25,6 +27,7 @@ class EditProfile extends Component {
       second_name: secondName,
       display_name: displayName,
       phone,
+      avatar,
     } = user;
 
     const inputs = [
@@ -50,7 +53,9 @@ class EditProfile extends Component {
 
     props.inputs = inputs;
 
-    props.img = new Img({ attribute: { src: img, name: 'avatar' } });
+    const src = avatar ? `${hostResourse}${avatar}` : img;
+
+    props.img = new Img({ attribute: { src, name: 'avatar', class: 'blok-edit-profile__img' } });
 
     props.form = new Form({
       content: [
@@ -136,6 +141,7 @@ function mapToProps(store: Indexed) {
       second_name: store.user.second_name,
       display_name: store.user.display_name,
       phone: store.user.phone,
+      avatar: store.user.avatar,
     },
   };
 }

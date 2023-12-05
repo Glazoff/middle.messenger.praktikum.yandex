@@ -17,6 +17,8 @@ import connect from '../../hocs/connect';
 import { Indexed } from '../../types';
 import { User } from '../../api/auth-api';
 
+const hostResourse = 'https://ya-praktikum.tech/api/v2/resources';
+
 class Profile extends Component {
   constructor(tag = 'div', props: Props = {}) {
     const { user } = props as { user: User };
@@ -27,6 +29,7 @@ class Profile extends Component {
       second_name: secondName,
       display_name: displayName,
       phone,
+      avatar,
     } = user;
 
     const inputs = [
@@ -52,9 +55,19 @@ class Profile extends Component {
 
     props.inputs = inputs;
 
+    const src = avatar ? `${hostResourse}${avatar}` : img;
+
+    props.img = new Img({ attribute: { src, name: 'avatar', class: 'blok-profile__img' } });
+
     props.head = new Head({
       content: [
-        new Img({ attribute: { src: img, name: 'avatar' } }),
+        new Block({
+          content: props.img,
+          attribute: { class: 'blok-profile__avatar' },
+          events: {
+            click: () => { router.go('/edit-avatar'); },
+          },
+        }),
         new Title({ text: displayName, attribute: { class: 'title' } }),
       ],
     });
@@ -143,6 +156,10 @@ class Profile extends Component {
         item.setProps({ text: user.display_name });
       }
     });
+
+    this.children.img.setProps({ attribute: { src: `${hostResourse}${user.avatar}` } });
+
+    console.log(this.children.img);
   }
 
   render() {
@@ -159,6 +176,7 @@ function mapToProps(store: Indexed) {
       second_name: store.user.second_name,
       display_name: store.user.display_name,
       phone: store.user.phone,
+      avatar: store.user.avatar,
     },
   };
 }

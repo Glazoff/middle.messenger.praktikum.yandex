@@ -55,6 +55,14 @@ class AuthController {
       throw Error(e as string);
     }
   }
+
+  public async changeAvatar(data: typeof FormData) {
+    try {
+      AuthAPI.changeAvatar(data);
+    } catch (e) {
+      throw Error(e as string);
+    }
+  }
 }
 
 export default new AuthController();

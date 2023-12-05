@@ -10,11 +10,20 @@ import Button from '../../components/Button';
 import { checkFocusoutValidation, checkSubmitValidation } from '../../utils/checkValidation';
 import AuthController from '../../controllers/AuthController';
 import router from '../../service/Router/Router';
-import { Password } from '../../api/auth-api';
+import { Password, User } from '../../api/auth-api';
 import backImg from '/img/back.svg';
+import { Indexed } from '../../types';
+import connect from '../../hocs/connect';
+
+const hostResourse = 'https://ya-praktikum.tech/api/v2/resources';
 
 class EditPassword extends Component {
   constructor(tag = 'div', props: Props = {}) {
+    const { user } = props as { user: User };
+    const {
+      avatar,
+    } = user;
+
     const inputs = [
       new Input({
         id: 'password', placeholder: 'Старый пароль', type: 'password', value: '', name: 'oldPassword', isDisabled: false,
@@ -29,7 +38,9 @@ class EditPassword extends Component {
 
     props.inputs = inputs;
 
-    props.img = new Img({ attribute: { src: img, name: 'avatar' } });
+    const src = avatar ? `${hostResourse}${avatar}` : img;
+
+    props.img = new Img({ attribute: { src, name: 'avatar', class: 'blok-edit-password__img' } });
 
     props.form = new Form({
       content: [
@@ -87,4 +98,12 @@ class EditPassword extends Component {
   }
 }
 
-export default EditPassword;
+function mapToProps(store: Indexed) {
+  return {
+    user: {
+      avatar: store.user.avatar,
+    },
+  };
+}
+
+export default connect(EditPassword, mapToProps);

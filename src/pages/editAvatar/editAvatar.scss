@@ -1,0 +1,33 @@
+.blok-edit-avatar {
+    box-sizing: border-box;
+    padding: 50px 30px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.2);
+    width: 340px;
+    min-height: 250px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 40px;
+}
+
+.blok-edit-avatar__title {
+    font-weight: 500;
+    font-size: 18px;
+    color: $color-dark;
+}
+
+.blok-edit-avatar__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+    justify-content: space-between;
+}

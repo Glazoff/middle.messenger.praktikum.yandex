@@ -31,6 +31,7 @@ export type User = {
   phone: string,
   display_name: string,
   id: number,
+  avatar: string,
 };
 
 class AuthAPI extends BaseAPI {
@@ -56,6 +57,10 @@ class AuthAPI extends BaseAPI {
 
   changePassword(data: Password) {
     return HTTP.put('/user/password', { data });
+  }
+
+  changeAvatar(data: typeof FormData) {
+    return HTTP.put('/user/profile/avatar', { data });
   }
 }
 

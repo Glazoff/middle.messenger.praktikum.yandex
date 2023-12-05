@@ -61,3 +61,30 @@
     border-right: 1px solid $color-grey-light; 
     background-color: $color-grey-lotion;
 }
+
+.blok-profile__avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 130px;
+    &:hover {
+        display: block;
+        filter: brightness(50%);
+        position: relative;
+        
+        &::after {
+            content: "Поменять аватар";
+            position: absolute;
+            display: block;
+            top: 25%;
+            left: 25%;
+            width: 64px;
+            height: 28px;
+            text-align: center;        
+        }
+    }
+}
+
+.blok-profile__img {
+    width: 130px;
+    height: 130px;
+}
