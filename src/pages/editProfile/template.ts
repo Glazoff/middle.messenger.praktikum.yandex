@@ -1,5 +1,5 @@
 const template = `
-    {{{ head }}}
+    {{{ img }}}
     {{{ form }}}
     {{{ backButton }}}
 `;

@@ -38,6 +38,15 @@ class AuthController {
       throw Error(e as string);
     }
   }
+
+  public async changeProfile(data: SignupUser) {
+    try {
+      AuthAPI.changeProfile(data)
+        .then((res) => store.set('user', JSON.parse(res.response)));
+    } catch (e) {
+      throw Error(e as string);
+    }
+  }
 }
 
 export default new AuthController();

@@ -4,7 +4,6 @@ import Img from '../../components/Img';
 import Title from '../../components/Title';
 import Component from '../../service/Component';
 import { Props } from '../../service/Component/types';
-import { checkFocusoutValidation, checkSubmitValidation } from '../../utils/checkValidation';
 import Button from './components/Button';
 import BaseButton from '../../components/Button';
 import Head from './components/Head';
@@ -71,7 +70,14 @@ class Profile extends Component {
 
         new Block({
           content: [
-            new Button({ text: 'Изменить данные' }),
+            new Button({
+              text: 'Изменить данные',
+              events: {
+                click: () => {
+                  router.go('/edit-settings');
+                },
+              },
+            }),
             new Button({ text: 'Изменить пароль' }),
             new Button({
               text: 'Выйти',
@@ -89,17 +95,6 @@ class Profile extends Component {
         }),
 
       ],
-      events: {
-        submit: (e) => {
-          e.preventDefault();
-          checkSubmitValidation(e, inputs);
-        },
-        focusout: (e) => {
-          e.preventDefault();
-          checkFocusoutValidation(e, inputs);
-        },
-      },
-
       attribute: {
         class: 'blok-profile__form',
       },
@@ -107,7 +102,7 @@ class Profile extends Component {
 
     props.backButton = new BaseButton({
       attribute: { class: 'back-button' },
-      events: { click: () => { router.back(); } },
+      events: { click: () => { router.go('/messenger'); } },
       icon: new Img({ attribute: { src: backImg } }),
     });
 

@@ -1,0 +1,35 @@
+.blok-edit-profile {
+    box-sizing: border-box;
+    width: 510px;
+    min-height: 450px;
+
+    margin-top: 15vh;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 40px;
+}
+
+.blok-edit-profile__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 40px;
+}
+
+.blok-edit-profile__button {
+    margin: auto;
+}
+
+.blok-edit-profile__inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    width: 100%;
+}

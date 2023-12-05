@@ -44,6 +44,10 @@ class AuthAPI extends BaseAPI {
   logout() {
     return HTTP.post('/auth/logout');
   }
+
+  changeProfile(data: SignupUser) {
+    return HTTP.put('/user/profile', { data });
+  }
 }
 
 export default new AuthAPI();

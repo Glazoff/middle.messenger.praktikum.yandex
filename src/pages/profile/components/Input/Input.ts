@@ -4,10 +4,11 @@ import template from './template';
 
 export default class Imput extends Component {
   constructor(props: Props = {}) {
-    const { isValid = true, textError = '' } = props;
+    const { isValid = true, textError = '', isDisabled = true } = props;
 
     props.isValid = isValid;
     props.textError = textError;
+    props.isDisabled = isDisabled;
 
     props.attribute = {
       class: 'input-profile-wrapper',
