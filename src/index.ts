@@ -5,6 +5,7 @@ import Registration from './pages/registration/Registration';
 import Profile from './pages/profile';
 import Chat from './pages/chat';
 import EditProfile from './pages/editProfile';
+import EditPassword from './pages/editPassword';
 import router from './service/Router/Router';
 
 router
@@ -12,6 +13,7 @@ router
   .use('/sign-up', Registration)
   .use('/settings', Profile)
   .use('/edit-settings', EditProfile)
+  .use('/edit-password', EditPassword)
   .use('/messenger', Chat)
   .use('/404', Page404)
   .use('/500', Page500)

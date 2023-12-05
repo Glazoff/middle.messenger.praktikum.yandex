@@ -1,4 +1,4 @@
-import AuthAPI, { SignupUser, SigninUser } from '../api/auth-api';
+import AuthAPI, { SignupUser, SigninUser, Password } from '../api/auth-api';
 import router from '../service/Router/Router';
 import store from '../service/Store';
 
@@ -43,6 +43,14 @@ class AuthController {
     try {
       AuthAPI.changeProfile(data)
         .then((res) => store.set('user', JSON.parse(res.response)));
+    } catch (e) {
+      throw Error(e as string);
+    }
+  }
+
+  public async changePassword(data: Password) {
+    try {
+      AuthAPI.changePassword(data);
     } catch (e) {
       throw Error(e as string);
     }

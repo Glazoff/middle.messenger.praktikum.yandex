@@ -78,7 +78,14 @@ class Profile extends Component {
                 },
               },
             }),
-            new Button({ text: 'Изменить пароль' }),
+            new Button({
+              text: 'Изменить пароль',
+              events: {
+                click: () => {
+                  router.go('/edit-password');
+                },
+              },
+            }),
             new Button({
               text: 'Выйти',
               red: true,

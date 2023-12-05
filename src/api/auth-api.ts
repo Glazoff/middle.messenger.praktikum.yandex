@@ -3,6 +3,11 @@ import Api from '../service/Api';
 
 const HTTP = new Api('https://ya-praktikum.tech/api/v2');
 
+export type Password = {
+  oldPassword: string,
+  newPassword: string,
+};
+
 export type SignupUser = {
   first_name: string,
   second_name: string,
@@ -47,6 +52,10 @@ class AuthAPI extends BaseAPI {
 
   changeProfile(data: SignupUser) {
     return HTTP.put('/user/profile', { data });
+  }
+
+  changePassword(data: Password) {
+    return HTTP.put('/user/password', { data });
   }
 }
 
