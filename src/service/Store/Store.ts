@@ -16,6 +16,7 @@ class Store extends EventBus {
       display_name: '',
       phone: '',
       avatar: '',
+      id: '',
     },
     listChat: [],
     currentIdChat: null,

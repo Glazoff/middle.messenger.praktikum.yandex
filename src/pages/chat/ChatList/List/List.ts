@@ -42,7 +42,6 @@ class List extends Component {
       lastMessage: chat.last_message,
       events: {
         click: () => {
-          console.log(Store.getState());
           Store.set('currentIdChat', chat.id);
         },
       },

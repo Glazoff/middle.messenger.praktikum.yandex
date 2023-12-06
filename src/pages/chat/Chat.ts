@@ -1,4 +1,5 @@
 import ChatController from '../../controllers/ChatController';
+import ProfileController from '../../controllers/ProfileController';
 import connect from '../../hocs/connect';
 import Component from '../../service/Component';
 import { Props } from '../../service/Component/types';
@@ -22,6 +23,7 @@ class Chat extends Component {
   }
 
   public componentDidMount(): void {
+    ProfileController.getUser();
     ChatController.getChats();
   }
 

@@ -1,9 +1,5 @@
 import EventBus from '../EventBus';
 
-type WsServiseType = {
-  url: string
-};
-
 enum Event {
   Error = 'error',
   Connected = 'connected',
@@ -20,25 +16,30 @@ export default class WsServise extends EventBus {
 
   private url: string;
 
-  constructor({ url }: WsServiseType) {
+  constructor(url: string) {
     super();
     this.url = url;
   }
 
   public send(data: string | number | object) {
     if (!this.socket) {
-      throw new Error('Soccket is not connected');
+      throw new Error('Socket is not connected');
     }
 
     this.socket.send(JSON.stringify(data));
   }
 
   public connect(): Promise<void> {
-    if (!this.socket) {
-      throw new Error('Soccket is not connected');
+    if (this.socket) {
+      throw new Error('The socket is alrade connected');
     }
 
-    this.socket = new WebSocket(this.url);
+		try {
+			this.socket = new WebSocket(this.url);
+		} catch (e) {
+			console.log('Ошибка ВС', e)
+		}
+    
     this.subscribe(this.socket);
     this.setupPing();
 

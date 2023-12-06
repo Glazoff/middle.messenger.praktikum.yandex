@@ -20,6 +20,10 @@ class ChatAPI extends BaseAPI {
   delUserChat(data: AddUserChat) {
     return HTTP.delete('/chats/users', { data });
   }
+
+  getTokenForChat(id: number) {
+    return HTTP.post(`/chats/token/${id}`);
+  }
 }
 
 export default new ChatAPI();
