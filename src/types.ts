@@ -30,3 +30,7 @@ export type User = {
   id: number,
   avatar: string,
 };
+
+export type NewChat = {
+  title: string,
+};

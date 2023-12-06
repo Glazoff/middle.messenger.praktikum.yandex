@@ -157,8 +157,6 @@ class Profile extends Component {
     });
 
     this.children.img.setProps({ attribute: { src: `${hostResourse}${user.avatar}` } });
-
-    console.log(this.children.img);
   }
 
   render() {

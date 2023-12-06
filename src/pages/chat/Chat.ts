@@ -1,3 +1,4 @@
+import ChatController from '../../controllers/ChatController';
 import Component from '../../service/Component';
 import { Props } from '../../service/Component/types';
 import ChatList from './ChatList';
@@ -15,6 +16,10 @@ export default class Chat extends Component {
     };
 
     super(tag, props);
+  }
+
+  public componentDidMount(): void {
+    setTimeout(() => ChatController.getChats(), 4000);
   }
 
   public render(): DocumentFragment {
