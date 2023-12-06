@@ -51,3 +51,8 @@ export type Chat = {
 };
 
 export type Chats = Chat[];
+
+export type AddUserChat = {
+  users: number[],
+  chatId: number,
+};
