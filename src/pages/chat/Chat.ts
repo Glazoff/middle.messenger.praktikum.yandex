@@ -1,15 +1,18 @@
 import ChatController from '../../controllers/ChatController';
+import connect from '../../hocs/connect';
 import Component from '../../service/Component';
 import { Props } from '../../service/Component/types';
+import { Indexed } from '../../types';
 import ChatList from './ChatList';
 import Messages from './Messages';
 import template from './template';
 
-export default class Chat extends Component {
+class Chat extends Component {
   constructor(tag = 'div', props: Props = {}) {
+    const { currentIdChat } = props;
     props.chatList = new ChatList();
 
-    props.messages = new Messages();
+    props.messages = currentIdChat ? new Messages() : 'Выберите чат чтобы отправить сообщение';
 
     props.attribute = {
       class: 'chat',
@@ -22,7 +25,21 @@ export default class Chat extends Component {
     ChatController.getChats();
   }
 
+  public setProps(newProps: Props): void {
+    newProps.messages = newProps.currentIdChat ? new Messages() : 'Выберите чат чтобы отправить сообщение';
+
+    super.setProps(newProps);
+  }
+
   public render(): DocumentFragment {
     return this.compile(template, this.props);
   }
 }
+
+function mapToProps(store: Indexed) {
+  return {
+    currentIdChat: store.currentChat,
+  };
+}
+
+export default connect(Chat, mapToProps);

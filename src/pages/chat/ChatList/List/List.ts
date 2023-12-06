@@ -1,6 +1,7 @@
 import connect from '../../../../hocs/connect';
 import Component from '../../../../service/Component';
 import { Props } from '../../../../service/Component/types';
+import Store from '../../../../service/Store';
 import { Chat, Chats, Indexed } from '../../../../types';
 import ListItem from './ListItem';
 import template from './template';
@@ -16,6 +17,12 @@ class List extends Component {
       avatar: chat.avatar,
       unread_count: chat.unread_count,
       last_message: chat.last_message,
+      events: {
+        click: () => {
+          console.log(chat.id);
+          Store.set('currentIdChat', chat.id);
+        },
+      },
     })) : [NO_MESSAGE];
 
     props.attribute = {
@@ -33,6 +40,12 @@ class List extends Component {
       avatar: chat.avatar,
       unread_count: chat.unread_count,
       lastMessage: chat.last_message,
+      events: {
+        click: () => {
+          console.log(Store.getState());
+          Store.set('currentIdChat', chat.id);
+        },
+      },
     })) : [NO_MESSAGE];
 
     super.setProps(newProps);
