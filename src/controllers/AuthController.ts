@@ -1,6 +1,6 @@
-import AuthAPI, { SignupUser, SigninUser, Password } from '../api/auth-api';
+import AuthAPI from '../api/auth-api';
 import router from '../service/Router/Router';
-import store from '../service/Store';
+import { SignupUser, SigninUser } from '../types';
 
 class AuthController {
   public async signupUser(data: SignupUser) {
@@ -25,40 +25,6 @@ class AuthController {
     try {
       await AuthAPI.logout();
       router.go('/');
-    } catch (e) {
-      throw Error(e as string);
-    }
-  }
-
-  public async getUser() {
-    try {
-      AuthAPI.getUser()
-        .then((res) => store.set('user', JSON.parse(res.response)));
-    } catch (e) {
-      throw Error(e as string);
-    }
-  }
-
-  public async changeProfile(data: SignupUser) {
-    try {
-      AuthAPI.changeProfile(data)
-        .then((res) => store.set('user', JSON.parse(res.response)));
-    } catch (e) {
-      throw Error(e as string);
-    }
-  }
-
-  public async changePassword(data: Password) {
-    try {
-      AuthAPI.changePassword(data);
-    } catch (e) {
-      throw Error(e as string);
-    }
-  }
-
-  public async changeAvatar(data: typeof FormData) {
-    try {
-      AuthAPI.changeAvatar(data);
     } catch (e) {
       throw Error(e as string);
     }

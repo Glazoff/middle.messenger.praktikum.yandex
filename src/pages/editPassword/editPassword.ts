@@ -8,14 +8,12 @@ import Form from '../../components/Form';
 import Block from '../../components/Block';
 import Button from '../../components/Button';
 import { checkFocusoutValidation, checkSubmitValidation } from '../../utils/checkValidation';
-import AuthController from '../../controllers/AuthController';
 import router from '../../service/Router/Router';
-import { Password, User } from '../../api/auth-api';
 import backImg from '/img/back.svg';
-import { Indexed } from '../../types';
+import { Indexed, Password, User } from '../../types';
 import connect from '../../hocs/connect';
-
-const hostResourse = 'https://ya-praktikum.tech/api/v2/resources';
+import ProfileController from '../../controllers/ProfileController';
+import hostResourse from '../../conts';
 
 class EditPassword extends Component {
   constructor(tag = 'div', props: Props = {}) {
@@ -67,7 +65,7 @@ class EditPassword extends Component {
         submit: (e) => {
           e.preventDefault();
           const data = checkSubmitValidation(e, inputs);
-          AuthController.changePassword(data as Password)
+          ProfileController.changePassword(data as Password)
             .then(() => { router.go('/settings'); });
         },
         focusout: (e) => {

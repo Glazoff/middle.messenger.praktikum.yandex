@@ -7,7 +7,7 @@ import Input from '../../components/Input';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../utils/checkValidation';
 import router from '../../service/Router/Router';
 import AuthController from '../../controllers/AuthController';
-import { SigninUser } from '../../api/auth-api';
+import { SigninUser } from '../../types';
 
 const inputs = [
   new Input({

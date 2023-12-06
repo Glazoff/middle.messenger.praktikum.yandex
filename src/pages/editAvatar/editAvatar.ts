@@ -7,8 +7,7 @@ import Block from '../../components/Block';
 import InputAvatar from './inputAvatar';
 import Button from '../../components/Button';
 import router from '../../service/Router/Router';
-// import { checkSubmitValidation } from '../../utils/checkValidation';
-import AuthController from '../../controllers/AuthController';
+import ProfileController from '../../controllers/ProfileController';
 
 export default class EditAvatar extends Component {
   constructor(tag = 'div', props: Props = {}) {
@@ -43,7 +42,7 @@ export default class EditAvatar extends Component {
           e.preventDefault();
 
           const data = new FormData(e.target as HTMLFormElement);
-          AuthController.changeAvatar(data as unknown as typeof FormData)
+          ProfileController.changeAvatar(data as unknown as typeof FormData)
             .then(() => router.go('/settings'));
         },
       },

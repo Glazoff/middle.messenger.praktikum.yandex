@@ -1,21 +1,19 @@
-import { SignupUser, User } from '../../api/auth-api';
 import Block from '../../components/Block';
 import Button from '../../components/Button';
 import Form from '../../components/Form';
 import Img from '../../components/Img';
 import connect from '../../hocs/connect';
-import AuthController from '../../controllers/AuthController';
 import Component from '../../service/Component';
 import { Props } from '../../service/Component/types';
-import { Indexed } from '../../types';
+import { Indexed, SignupUser, User } from '../../types';
 import { checkFocusoutValidation, checkSubmitValidation } from '../../utils/checkValidation';
 import Input from '../profile/components/Input';
 import template from './template';
 import img from '/img/Ellipse 17.svg';
 import backImg from '/img/back.svg';
 import router from '../../service/Router/Router';
-
-const hostResourse = 'https://ya-praktikum.tech/api/v2/resources';
+import ProfileController from '../../controllers/ProfileController';
+import hostResourse from '../../conts';
 
 class EditProfile extends Component {
   constructor(tag = 'div', props: Props = {}) {
@@ -82,7 +80,7 @@ class EditProfile extends Component {
         submit: (e) => {
           e.preventDefault();
           const data = checkSubmitValidation(e, inputs);
-          AuthController.changeProfile(data as SignupUser)
+          ProfileController.changeProfile(data as SignupUser)
             .then(() => { router.go('/settings'); });
         },
         focusout: (e) => {
@@ -109,7 +107,7 @@ class EditProfile extends Component {
   }
 
   public componentDidMount() {
-    AuthController.getUser();
+    ProfileController.getUser();
   }
 
   setProps(newProps: Props) {

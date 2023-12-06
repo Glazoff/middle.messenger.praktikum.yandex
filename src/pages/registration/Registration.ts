@@ -7,7 +7,7 @@ import template from './template';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../utils/checkValidation';
 import router from '../../service/Router/Router';
 import AuthController from '../../controllers/AuthController';
-import { SignupUser } from '../../api/auth-api';
+import { SignupUser } from '../../types';
 
 const inputs = [
   new Input({

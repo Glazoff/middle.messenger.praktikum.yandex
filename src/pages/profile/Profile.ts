@@ -12,12 +12,11 @@ import template from './template';
 import img from '/img/Ellipse 17.svg';
 import backImg from '/img/back.svg';
 import router from '../../service/Router/Router';
-import AuthController from '../../controllers/AuthController';
 import connect from '../../hocs/connect';
-import { Indexed } from '../../types';
-import { User } from '../../api/auth-api';
-
-const hostResourse = 'https://ya-praktikum.tech/api/v2/resources';
+import { Indexed, User } from '../../types';
+import ProfileController from '../../controllers/ProfileController';
+import AuthController from '../../controllers/AuthController';
+import hostResourse from '../../conts';
 
 class Profile extends Component {
   constructor(tag = 'div', props: Props = {}) {
@@ -133,7 +132,7 @@ class Profile extends Component {
   }
 
   public componentDidMount() {
-    AuthController.getUser();
+    ProfileController.getUser();
   }
 
   setProps(newProps: Props) {

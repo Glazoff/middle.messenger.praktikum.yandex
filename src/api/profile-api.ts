@@ -1,24 +1,12 @@
 import BaseAPI from './base-api';
 import Api from '../service/Api';
-import { Password, SigninUser, SignupUser } from '../types';
+import { Password, SignupUser } from '../types';
 
 const HTTP = new Api('https://ya-praktikum.tech/api/v2');
 
-class AuthAPI extends BaseAPI {
-  singup(data: SignupUser) {
-    return HTTP.post('/auth/signup', { data });
-  }
-
-  signin(data: SigninUser) {
-    return HTTP.post('/auth/signin', { data });
-  }
-
+class ProfileAPI extends BaseAPI {
   getUser() {
     return HTTP.get('/auth/user');
-  }
-
-  logout() {
-    return HTTP.post('/auth/logout');
   }
 
   changeProfile(data: SignupUser) {
@@ -34,4 +22,4 @@ class AuthAPI extends BaseAPI {
   }
 }
 
-export default new AuthAPI();
+export default new ProfileAPI();
