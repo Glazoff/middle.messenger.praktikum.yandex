@@ -3,5 +3,15 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 90px;
+    min-height: 140px;
+}
+
+.chat-list__form-add-chat {
+    width: 95%;
+    display: flex;
+    column-gap: 15px;
+}
+
+.form-add-chat_button {
+    width: 150px;
 }

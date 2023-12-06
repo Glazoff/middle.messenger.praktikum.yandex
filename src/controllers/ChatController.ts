@@ -8,8 +8,9 @@ class ChatController {
       .then((res) => store.set('listChat', JSON.parse(res.response)));
   }
 
-  public addChats(data: NewChat) {
-    ChatAPI.addChat(data);
+  public async addChats(data: NewChat) {
+    await ChatAPI.addChat(data);
+    this.getChats();
   }
 }
 
