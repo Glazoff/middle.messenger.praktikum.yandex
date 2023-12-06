@@ -19,7 +19,7 @@ export default class Chat extends Component {
   }
 
   public componentDidMount(): void {
-    setTimeout(() => ChatController.getChats(), 4000);
+    ChatController.getChats();
   }
 
   public render(): DocumentFragment {

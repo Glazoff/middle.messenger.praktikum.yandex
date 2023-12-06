@@ -5,7 +5,7 @@ import { NewChat } from '../types';
 class ChatController {
   public getChats() {
     ChatAPI.getChats()
-      .then((res) => store.set('chats', JSON.parse(res.response)));
+      .then((res) => store.set('listChat', JSON.parse(res.response)));
   }
 
   public addChats(data: NewChat) {

@@ -1,40 +1,22 @@
 import connect from '../../../../hocs/connect';
 import Component from '../../../../service/Component';
 import { Props } from '../../../../service/Component/types';
-import { Indexed, User } from '../../../../types';
+import { Chat, Chats, Indexed } from '../../../../types';
 import ListItem from './ListItem';
 import template from './template';
 
 const NO_MESSAGE = 'У Вас еще нет активных чатов';
 
-type Chat = {
-  id: number,
-  title: string,
-  avatar: string,
-  unread_count: number,
-  created_by: number,
-  last_message: {
-    user: User,
-    time: string,
-    content: string
-  }
-};
-
-type Chats = Chat[];
-
 class List extends Component {
   constructor(tag = 'div', props: Props = {}) {
-    const { chats } = props as { chats: Chats };
+    const { listChat } = props as { listChat: Chats };
 
-    // ChatController.addChats({ title: 'Новый чат' });
-
-    props.listChat = chats.length !== 0 ? chats.map((chat) => new ListItem({ chat })) : [NO_MESSAGE];
-
-    // props.listChat = [
-    //   new ListItem(),
-    //   new ListItem(),
-    //   new ListItem(),
-    // ];
+    props.listChat = listChat.length !== 0 ? listChat.map((chat) => new ListItem({
+      title: chat.title,
+      avatar: chat.avatar,
+      unread_count: chat.unread_count,
+      last_message: chat.last_message,
+    })) : [NO_MESSAGE];
 
     props.attribute = {
       class: 'chat-list__list',
@@ -44,10 +26,16 @@ class List extends Component {
   }
 
   public setProps(newProps: Props): void {
-    super.setProps(newProps);
-    const chats = newProps.chats as Chats;
+    const { listChat } = newProps as { listChat: Chats };
 
-    this.props.listChat = chats.length !== 0 ? chats.map((chat: Chat) => new ListItem({ chat })) : [NO_MESSAGE];
+    newProps.listChat = listChat.length !== 0 ? listChat.map((chat: Chat) => new ListItem({
+      title: chat.title,
+      avatar: chat.avatar,
+      unread_count: chat.unread_count,
+      lastMessage: chat.last_message,
+    })) : [NO_MESSAGE];
+
+    super.setProps(newProps);
   }
 
   public render(): DocumentFragment {
@@ -57,7 +45,7 @@ class List extends Component {
 
 function mapToProps(store: Indexed) {
   return {
-    chats: store.chats,
+    listChat: store.listChat,
   };
 }
 

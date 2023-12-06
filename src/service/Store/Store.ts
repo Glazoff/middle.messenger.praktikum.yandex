@@ -17,7 +17,7 @@ class Store extends EventBus {
       phone: '',
       avatar: '',
     },
-    chats: [],
+    listChat: [],
   };
 
   public getState() {
