@@ -7,7 +7,7 @@ import { AddUserChat, Message, NewChat } from '../types';
 const hostWs = 'wss://ya-praktikum.tech/ws/chats';
 
 class ChatController {
-  private socket: WsServise;
+  private socket: WsServise | null;
 
   public getChats() {
     ChatAPI.getChats()
@@ -51,9 +51,12 @@ class ChatController {
       const res = JSON.parse((await ChatAPI.getTokenForChat(idChat)).response);
       this.socket = new WsServise(`${hostWs}/${idUser}/${idChat}/${res.token}`);
 
+      this.socket.on(Event.Connected, () => {
+        this.socket?.on(Event.Message, this.setMessages);
+        this.getMessagesChats();
+      });
+
       await this.socket.connect();
-      this.socket.on(Event.Message, this.setMessages);
-      this.getMessagesChats();
     } catch (e) {
       throw Error(e as string);
     }
@@ -62,6 +65,7 @@ class ChatController {
   public dicsonnectChat() {
     if (this.socket) {
       this.socket.close();
+      this.socket = null;
     }
   }
 
