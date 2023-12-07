@@ -6,12 +6,16 @@
 
 ### Функциональность 
 На данный момент приложение может:
-+ Валидировать поля по событиям `submit` и `focusout` c помощью регулярных выражений.
-+ Выводить в консоль браузера результат события `submit` из формы.
++ Регистрация, Авторизация
++ Обмен сообщениями по WebSocket 
++ Добавлить чат, добавить в чат пользователя (Добавления происходит по id)
++ Редактировать профиль пользователя 
++ Замена аватарки пользователя
++ Проверка на авторизации пользователя в роутинге приложения
 
 ### Технологии
 + Проект написан на основне компонетного подхода, основой которой служит [class Component](https://github.com/Glazoff/middle.messenger.praktikum.yandex/tree/sprint_2/src/service/Component).
-
++ WebSocket
 + [handlebars](https://github.com/handlebars-lang/handlebars.js)
 + [typescript](https://www.typescriptlang.org)
 + [uuid](https://github.com/uuidjs/uuid)
