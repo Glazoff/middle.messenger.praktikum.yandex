@@ -36,7 +36,9 @@ class ChatController {
 
     if (Array.isArray(data)) {
       const newList = list.concat(data);
-      store.set('messagesList', [...newList]);
+      const sort = (a:Record<string, any>, b: Record<string, any>) => (b.time - a.time ? 1 : -1);
+      const sortList = newList.sort(sort);
+      store.set('messagesList', [...sortList]);
       console.log('store...', store.getState());
       return;
     }

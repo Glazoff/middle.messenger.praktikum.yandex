@@ -30,7 +30,11 @@ export default class ListItem extends Component {
       ],
     });
 
-    props.time = new Textarea({ text: lastMessage && lastMessage.time, attribute: { class: 'time' } });
+    const time = lastMessage && new Date(lastMessage.time);
+    const hours = time?.getHours();
+    const min = time?.getMinutes();
+
+    props.time = new Textarea({ text: lastMessage && `${hours}:${min}`, attribute: { class: 'time' } });
 
     props.countUnread = unreadCount ? new CountUnread({ count: unreadCount }) : '';
 
