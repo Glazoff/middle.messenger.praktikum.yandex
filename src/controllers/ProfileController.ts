@@ -12,6 +12,10 @@ class ProfileController {
     }
   }
 
+  public async checkAuth() {
+    return (await ProfileAPI.getUser()).status;
+  }
+
   public async changeProfile(data: SignupUser) {
     try {
       ProfileAPI.changeProfile(data)

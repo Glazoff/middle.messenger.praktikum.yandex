@@ -1,3 +1,4 @@
+import ProfileController from '../../controllers/ProfileController';
 import Component from '../Component';
 import Route from './Route';
 
@@ -24,6 +25,15 @@ class Router {
     Router.instance = this;
   }
 
+  public async checkAuth() {
+    const res = await ProfileController.checkAuth();
+    if (res === 200) {
+      this.go('/messenger');
+    } else {
+      this.go('/');
+    }
+  }
+
   public use(pathname: string, block: typeof Component) {
     const route = new Route(pathname, block, { rootQuery: this.rootQuery });
 
@@ -37,6 +47,8 @@ class Router {
       const w = event.target as Window;
       this.onRoute(w.location.pathname);
     });
+
+    this.checkAuth();
 
     this.onRoute(window.location.pathname);
   }
