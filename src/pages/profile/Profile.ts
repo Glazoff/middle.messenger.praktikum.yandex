@@ -156,7 +156,9 @@ class Profile extends Component {
       }
     });
 
-    this.children.img.setProps({ attribute: { src: `${hostResourse}${user.avatar}` } });
+    const src = user.avatar ? `${hostResourse}${user.avatar}` : img;
+
+    this.children.img.setProps({ attribute: { src } });
   }
 
   render() {

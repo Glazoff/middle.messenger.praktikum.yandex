@@ -8,13 +8,7 @@ import template from './template';
 
 class MessageList extends Component {
   constructor(tag = 'div', props: Props = {}) {
-    const { messagesList, user } = props as { messagesList: [] | Message[], user: User };
-
-    props.content = messagesList.length !== 0 ? messagesList.map((message: Message) => new MessageBlock({
-      isMe: message.user_id === user.id,
-      time: message.time,
-      text: message.content,
-    })) : ['Сообщений нет'];
+    props.content = ['Сообщений нет'];
 
     props.attribute = {
       class: 'message-list',
