@@ -32,6 +32,11 @@ class Messages extends Component {
   }
 
   public render(): DocumentFragment {
+    const wrapper = document.getElementById('wrapper-scroll-id');
+    if (wrapper) {
+      wrapper.scrollTo(0, wrapper.scrollHeight);
+    }
+
     return this.compile(template, this.props);
   }
 }

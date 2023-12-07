@@ -1,5 +1,5 @@
 const template = `
-    <div class="wrapper-scroll">
+    <div id="wrapper-scroll-id" class="wrapper-scroll">
         {{{ content }}}
     </div>
 `;
