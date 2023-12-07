@@ -1,3 +1,4 @@
+import ChatController from '../../../../controllers/ChatController';
 import connect from '../../../../hocs/connect';
 import Component from '../../../../service/Component';
 import { Props } from '../../../../service/Component/types';
@@ -19,7 +20,7 @@ class List extends Component {
       last_message: chat.last_message,
       events: {
         click: () => {
-          console.log(chat.id);
+          ChatController.dicsonnectChat();
           Store.set('currentIdChat', chat.id);
         },
       },
@@ -42,6 +43,7 @@ class List extends Component {
       lastMessage: chat.last_message,
       events: {
         click: () => {
+          ChatController.dicsonnectChat();
           Store.set('currentIdChat', chat.id);
         },
       },

@@ -5,6 +5,7 @@ import Input from './components/Input';
 import SubmitButton from './components/SubmitButton';
 import template from './template';
 import { checkSubmitValidation, checkFocusoutValidation } from '../../../../utils/checkValidation';
+import ChatController from '../../../../controllers/ChatController';
 
 const inputs = [new Input({ name: 'message' })];
 
@@ -23,7 +24,10 @@ export default class InputMessage extends Component {
     props.events = {
       submit: (e) => {
         e.preventDefault();
-        checkSubmitValidation(e, inputs);
+        const input = document.querySelector('.input-message') as HTMLInputElement;
+        const data = checkSubmitValidation(e, inputs);
+        ChatController.sendMessage(data.message);
+        input.value = '';
       },
       focusout: (e) => {
         e.preventDefault();

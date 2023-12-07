@@ -34,12 +34,8 @@ export default class WsServise extends EventBus {
       throw new Error('The socket is alrade connected');
     }
 
-		try {
-			this.socket = new WebSocket(this.url);
-		} catch (e) {
-			console.log('Ошибка ВС', e)
-		}
-    
+    this.socket = new WebSocket(this.url);
+
     this.subscribe(this.socket);
     this.setupPing();
 
