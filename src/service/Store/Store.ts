@@ -20,6 +20,7 @@ class Store extends EventBus {
     },
     listChat: [],
     currentIdChat: null,
+    messagesList: [],
   };
 
   public getState() {

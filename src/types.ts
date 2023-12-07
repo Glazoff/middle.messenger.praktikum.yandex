@@ -56,3 +56,13 @@ export type AddUserChat = {
   users: number[],
   chatId: number,
 };
+
+export type Message = {
+  chat_id: number,
+  content: string,
+  id: number,
+  is_read: boolean,
+  time: string,
+  type: string,
+  user_id: number,
+};

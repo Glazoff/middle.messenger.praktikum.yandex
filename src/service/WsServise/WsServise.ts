@@ -1,6 +1,6 @@
 import EventBus from '../EventBus';
 
-enum Event {
+export enum Event {
   Error = 'error',
   Connected = 'connected',
   Close = 'close',
@@ -80,11 +80,10 @@ export default class WsServise extends EventBus {
     socket.addEventListener('message', (message: MessageEvent<any>) => {
       try {
         const data = JSON.parse(message.data);
-        if (['ping', 'user connected'].includes(data?.type)) {
+        if (['ping', 'pong', 'user connected'].includes(data?.type)) {
           return;
         }
         this.emit(Event.Message, data);
-        console.log('новое сообщение', data);
       } catch (e) {
         console.log(e);
       }

@@ -45,6 +45,7 @@ class List extends Component {
         click: () => {
           ChatController.dicsonnectChat();
           Store.set('currentIdChat', chat.id);
+          ChatController.clearMessages();
         },
       },
     })) : [NO_MESSAGE];

@@ -28,7 +28,9 @@ class Chat extends Component {
   }
 
   public setProps(newProps: Props): void {
-    newProps.messages = newProps.currentIdChat ? new Messages() : 'Выберите чат чтобы отправить сообщение';
+    if (this.props.currentIdChat !== newProps.currentIdChat) {
+      newProps.messages = newProps.currentIdChat ? new Messages() : 'Выберите чат чтобы отправить сообщение';
+    }
 
     super.setProps(newProps);
   }
