@@ -40,7 +40,7 @@ class List extends Component {
       title: chat.title,
       avatar: chat.avatar,
       unread_count: chat.unread_count,
-      lastMessage: chat.last_message,
+      last_message: chat.last_message,
       events: {
         click: () => {
           ChatController.dicsonnectChat();

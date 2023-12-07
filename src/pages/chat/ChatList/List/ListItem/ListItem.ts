@@ -32,7 +32,7 @@ export default class ListItem extends Component {
 
     props.time = new Textarea({ text: lastMessage && lastMessage.time, attribute: { class: 'time' } });
 
-    props.countUnread = new CountUnread({ count: unreadCount });
+    props.countUnread = unreadCount ? new CountUnread({ count: unreadCount }) : '';
 
     props.attribute = {
       class: 'lsit-item',
