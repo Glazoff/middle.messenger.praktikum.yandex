@@ -34,7 +34,7 @@ class List extends Component {
   }
 
   public setProps(newProps: Props): void {
-    const { listChat } = newProps as { listChat: Chats };
+    const { listChat, currentIdChat } = newProps as { listChat: Chats, currentIdChat: number };
 
     newProps.listChat = listChat.length !== 0 ? listChat.map((chat: Chat) => new ListItem({
       title: chat.title,
@@ -43,9 +43,11 @@ class List extends Component {
       last_message: chat.last_message,
       events: {
         click: () => {
-          ChatController.dicsonnectChat();
-          Store.set('currentIdChat', chat.id);
-          ChatController.clearMessages();
+          if (currentIdChat !== chat.id) {
+            ChatController.dicsonnectChat();
+            Store.set('currentIdChat', chat.id);
+            ChatController.clearMessages();
+          }
         },
       },
     })) : [NO_MESSAGE];
@@ -61,6 +63,7 @@ class List extends Component {
 function mapToProps(store: Indexed) {
   return {
     listChat: store.listChat,
+    currentIdChat: store.currentIdChat,
   };
 }
 
