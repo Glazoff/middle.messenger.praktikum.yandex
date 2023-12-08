@@ -25,9 +25,12 @@ export default class InputMessage extends Component {
       submit: (e) => {
         e.preventDefault();
         const input = document.querySelector('.input-message') as HTMLInputElement;
-        const data = checkSubmitValidation(e, inputs);
-        ChatController.sendMessage(data.message);
-        input.value = '';
+        const value = input.value.trim();
+        if (value.length !== 0) {
+          const data = checkSubmitValidation(e, inputs);
+          ChatController.sendMessage(data.message);
+          input.value = '';
+        }
       },
       focusout: (e) => {
         e.preventDefault();
