@@ -1,8 +1,9 @@
 import BaseAPI from './base-api';
 import Api from '../service/Api';
 import { Password, SigninUser, SignupUser } from '../types';
+import { hostRoot } from '../conts';
 
-const HTTP = new Api('https://ya-praktikum.tech/api/v2');
+const HTTP = new Api(hostRoot);
 
 class AuthAPI extends BaseAPI {
   singup(data: SignupUser) {
