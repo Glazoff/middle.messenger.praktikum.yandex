@@ -11,6 +11,7 @@ export const Inputs: Record<string, RegExp> = {
   login: new RegExp('^[a-zA-Z0-9/_-]{3,20}$'),
   phone: new RegExp('^[+0-9]{1}[0-9]{10,15}$'),
   message: new RegExp('\\w'),
+  display_name: new RegExp(''),
 };
 
 export const TextError = {
