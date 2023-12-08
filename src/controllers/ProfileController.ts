@@ -8,7 +8,7 @@ class ProfileController {
       ProfileAPI.getUser()
         .then((res) => store.set('user', JSON.parse(res.response)));
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 
@@ -21,7 +21,7 @@ class ProfileController {
       ProfileAPI.changeProfile(data)
         .then((res) => store.set('user', JSON.parse(res.response)));
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 
@@ -29,7 +29,7 @@ class ProfileController {
     try {
       ProfileAPI.changePassword(data);
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 
@@ -37,7 +37,7 @@ class ProfileController {
     try {
       ProfileAPI.changeAvatar(data);
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 }

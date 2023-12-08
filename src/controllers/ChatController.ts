@@ -60,7 +60,7 @@ class ChatController {
 
       await this.socket.connect();
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 

@@ -8,7 +8,7 @@ class AuthController {
       await AuthAPI.singup(data);
       router.go('/messenger');
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 
@@ -17,7 +17,7 @@ class AuthController {
       await AuthAPI.signin(data);
       router.go('/messenger');
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 
@@ -26,7 +26,7 @@ class AuthController {
       await AuthAPI.logout();
       router.go('/');
     } catch (e) {
-      throw Error(e as string);
+      console.error(e as string);
     }
   }
 }
