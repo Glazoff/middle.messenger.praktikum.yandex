@@ -26,4 +26,21 @@
         font-size: 13px;
         color: $color-dark;
     }
+
+    .form-add-del-user_button {
+        width: 150px;
+    }
+
+    .form-del-add-user {
+        display: flex;
+        column-gap: 10px;
+    }
+
+    .form-del-user {
+        background: $orange-red-crayola;
+    }
+
+    .form-add-del-user_input {
+        width: 300px;
+    }
 }

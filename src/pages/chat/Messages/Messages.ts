@@ -1,12 +1,23 @@
+import ChatController from '../../../controllers/ChatController';
+import connect from '../../../hocs/connect';
 import Component from '../../../service/Component';
 import { Props } from '../../../service/Component/types';
+import { Indexed } from '../../../types';
 import Head from './Head';
 import InputMessage from './InputMessage';
 import MessageList from './MessageList';
 import template from './template';
 
-export default class Messages extends Component {
-  constructor(props: Props = {}) {
+type MessageProps = {
+  userId: number,
+  currentIdChat: number,
+};
+
+class Messages extends Component {
+  constructor(tag = 'div', props: Props = {}) {
+    const { userId, currentIdChat } = props as MessageProps;
+    ChatController.connectChat(userId, currentIdChat);
+
     props.head = new Head();
 
     props.messageList = new MessageList();
@@ -17,10 +28,24 @@ export default class Messages extends Component {
       class: 'messages',
     };
 
-    super('div', props);
+    super(tag, props);
   }
 
   public render(): DocumentFragment {
+    const wrapper = document.getElementById('wrapper-scroll-id');
+    if (wrapper) {
+      wrapper.scrollTo(0, wrapper.scrollHeight);
+    }
+
     return this.compile(template, this.props);
   }
 }
+
+function mapToProps(store: Indexed) {
+  return {
+    currentIdChat: store.currentIdChat,
+    userId: store.user.id,
+  };
+}
+
+export default connect(Messages, mapToProps);

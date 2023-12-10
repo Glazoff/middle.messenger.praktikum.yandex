@@ -1,24 +1,70 @@
+import ChatController from '../../../../controllers/ChatController';
+import connect from '../../../../hocs/connect';
 import Component from '../../../../service/Component';
 import { Props } from '../../../../service/Component/types';
+import Store from '../../../../service/Store';
+import { Chat, Chats, Indexed } from '../../../../types';
 import ListItem from './ListItem';
 import template from './template';
 
-export default class List extends Component {
-  constructor(props: Props = {}) {
-    props.listChat = [
-      new ListItem(),
-      new ListItem(),
-      new ListItem(),
-    ];
+const NO_MESSAGE = 'У Вас еще нет активных чатов';
+
+class List extends Component {
+  constructor(tag = 'div', props: Props = {}) {
+    const { listChat } = props as { listChat: Chats };
+
+    props.listChat = listChat.length !== 0 ? listChat.map((chat) => new ListItem({
+      title: chat.title,
+      avatar: chat.avatar,
+      unread_count: chat.unread_count,
+      last_message: chat.last_message,
+      events: {
+        click: () => {
+          ChatController.dicsonnectChat();
+          Store.set('currentIdChat', chat.id);
+        },
+      },
+    })) : [NO_MESSAGE];
 
     props.attribute = {
       class: 'chat-list__list',
     };
 
-    super('div', props);
+    super(tag, props);
+  }
+
+  public setProps(newProps: Props): void {
+    const { listChat, currentIdChat } = newProps as { listChat: Chats, currentIdChat: number };
+
+    newProps.listChat = listChat.length !== 0 ? listChat.map((chat: Chat) => new ListItem({
+      title: chat.title,
+      avatar: chat.avatar,
+      unread_count: chat.unread_count,
+      last_message: chat.last_message,
+      events: {
+        click: () => {
+          if (currentIdChat !== chat.id) {
+            ChatController.dicsonnectChat();
+            Store.set('currentIdChat', chat.id);
+            ChatController.clearMessages();
+          }
+        },
+      },
+    })) : [NO_MESSAGE];
+
+    super.setProps(newProps);
   }
 
   public render(): DocumentFragment {
     return this.compile(template, this.props);
   }
 }
+
+function mapToProps(store: Indexed) {
+  return {
+    listChat: store.listChat,
+    currentIdChat: store.currentIdChat,
+  };
+}
+
+export default connect(List, mapToProps);

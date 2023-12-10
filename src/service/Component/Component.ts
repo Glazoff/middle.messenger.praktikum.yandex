@@ -23,11 +23,11 @@ export default class Component {
 
   private eventBus: EventBus;
 
-  private children: Children<Component>;
+  public children: Children<Component>;
 
   private isPropsUdate: boolean = false;
 
-  private lists: Lists<Component>;
+  public lists: Lists<Component>;
 
   public props: Props;
 
@@ -232,8 +232,7 @@ export default class Component {
     if (Object.values(children).length) {
       Object.assign(this.children, children);
     }
-
-    if (Object.values(this.lists).length) {
+    if (Object.values(lists).length) {
       Object.assign(this.lists, lists);
     }
 

@@ -9,7 +9,11 @@ export default class MessageBlock extends Component {
 
     props.text = new Textarea({ text });
 
-    props.time = new Textarea({ text: time, attribute: { class: 'time' } });
+    const fixTime = new Date(time as string);
+    const hours = fixTime?.getHours();
+    const min = fixTime?.getMinutes();
+
+    props.time = new Textarea({ text: time && `${hours}:${min}`, attribute: { class: 'time' } });
 
     props.attribute = {
       class: `message-block ${isMe ? 'message-block-me' : 'message-block-its'}`,

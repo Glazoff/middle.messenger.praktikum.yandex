@@ -5,6 +5,8 @@ export default function renderDOM(query: string, component: any) {
     throw Error(`Елемент ${query} не найден`);
   }
 
+  root.innerHTML = '';
+
   root.appendChild(component.getContent());
 
   component.dispatchComponentDidMount();

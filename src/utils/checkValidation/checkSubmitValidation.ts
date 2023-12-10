@@ -49,6 +49,7 @@ const checkSubmitValidation = (e: Event, inputs: Component[]) => {
   });
 
   console.log(resForConsole);
+  return resForConsole;
 };
 
 export default checkSubmitValidation;
