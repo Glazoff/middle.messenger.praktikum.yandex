@@ -6,7 +6,6 @@
     "parserOptions": {
       "project": "./tsconfig.json"
     },
-    "include": ["./mochaSetup.js"],
     "plugins": ["@typescript-eslint"],  
     "ignorePatterns": ["server.js", "vite.config.ts"],
     "rules": {
