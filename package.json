@@ -13,7 +13,8 @@
     "prebuild": "tsc --noEmit",
     "build": "npm run prebuild && vite build",
     "preview": "vite preview",
-    "start": "vite build && vite preview"
+    "start": "vite build && vite preview",
+    "prepare": "husky install"
   },
   "directories": {
     "src": "./src"
@@ -34,6 +35,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "express": "^4.18.2",
+    "husky": "^8.0.3",
     "jsdom": "^23.0.1",
     "mocha": "^10.2.0",
     "sass": "^1.69.4",
