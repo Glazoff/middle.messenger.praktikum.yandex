@@ -9,6 +9,7 @@ import EditPassword from './pages/editPassword';
 import EditAvatar from './pages/editAvatar';
 import router from './service/Router/Router';
 
+//asd
 router
   .use('/', Auth)
   .use('/sign-up', Registration)
