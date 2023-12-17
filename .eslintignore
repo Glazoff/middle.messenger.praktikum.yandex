@@ -4,3 +4,4 @@
 /dist
 /vite.config.js
 /server.js
+mochaSetup.cjs
