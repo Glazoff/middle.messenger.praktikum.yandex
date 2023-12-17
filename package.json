@@ -14,13 +14,7 @@
     "build": "npm run prebuild && vite build",
     "preview": "vite preview",
     "start": "vite build && vite preview",
-    "prepare": "husky install",
-    "husky": {
-      "hooks": {
-        "pre-commit": "npm-run-all test lint:all",
-        "pre-push": "npm run other command"
-      }
-    }
+    "prepare": "husky install"
   },
   "directories": {
     "src": "./src"
