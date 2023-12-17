@@ -9,7 +9,7 @@ import EditPassword from './pages/editPassword';
 import EditAvatar from './pages/editAvatar';
 import router from './service/Router/Router';
 
-//test code 12
+//test code 1212
 
 router
   .use('/', Auth)
