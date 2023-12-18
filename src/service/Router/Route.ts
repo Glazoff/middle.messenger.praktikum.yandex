@@ -4,7 +4,7 @@ import { Props } from '../Component/types';
 import isEqual from './utils';
 
 class Route {
-  private pathname: string;
+  public pathname: string;
 
   private blockClass: typeof Component;
 

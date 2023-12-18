@@ -1,11 +1,13 @@
-import { compile } from 'handlebars';
 import { v4 as makeUUID } from 'uuid';
+import pkg from 'handlebars';
 
 import EventBus from '../EventBus';
 
 import {
   Props, Children, Meta, Lists,
 } from './types';
+
+const { compile } = pkg;
 
 export default class Component {
   static EVENTS = {

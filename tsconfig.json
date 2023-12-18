@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "types": ["vite/client"],
+      "types": ["vite/client", "mocha", "sinon", "chai", "ts-node", "node"],
       "target": "ESNext",
       "useDefineForClassFields": true,
       "module": "ESNext",
@@ -20,5 +20,10 @@
       "strictNullChecks": true,
       "strictPropertyInitialization": false
     },
-    "include": ["src"]
+    "include": ["src"],
+    "ts-node": {
+      "esm": true,
+      "experimentalSpecifierResolution": "node",
+      "transpileOnly": true
+    }
   }
